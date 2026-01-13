@@ -1,0 +1,1 @@
+.\Release\robot_api_demo3.exe D:\Git\RobotAPI\walk_1_001_C_y_lanqiu_04_chr01.bvh D:\Git\RobotAPI\retarget.json 60

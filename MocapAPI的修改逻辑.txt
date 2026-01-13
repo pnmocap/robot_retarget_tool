@@ -1,0 +1,20 @@
+把原来通过 IMCPRobot 的调用替换为 robot_api.dll 导出的 RA_* 接口，并在工程中链接 robot_api.lib、把 robot_api.dll 放到可执行文件可加载的目录。要点与示例说明如下：
+1.	准备（项目/编译层面）
+•	在项目的包含路径中加入 robot_api_exports.h 所在目录（或把头复制到可见路径）。
+•	在链接器里添加 build/Release/robot_api.lib（导入库）。
+•	运行时确保 robot_api.dll 与 MocapApi.dll 在可执行文件目录或 PATH 中（当前封装仍依赖 MocapApi 提供 avatar/joint 数据）。
+2.	代码修改（替换调用点）
+•	删除或注释掉与 IMCPRobot 相关的声明与 MCPGetGenericInterface(IMCPRobot_Version, ...)。
+•	引入头：#include "robot_api_exports.h"（并保留 #include <MocapApi.h>，因为 RA_UpdateRobot 需要 MCPAvatarHandle_t 等类型）。
+•	把创建与操作替换为 RA_* 接口，典型映射：
+•	robotInterface->CreateRobot(config, &pHandle)  → RA_CreateRobot(config, &pHandle)
+•	robotInterface->SetRobotFPS(fps, pHandle)      → RA_SetRobotFPS(fps, pHandle)
+•	robotInterface->UpdateRobot(avatarHandle, pHandle) → RA_UpdateRobot(avatarHandle, pHandle)
+•	robotInterface->GetRobotRetargetJointAngle(name, &v, pHandle) → RA_GetRobotRetargetJointAngle(name, &v, pHandle)
+•	robotInterface->GetRobotRosFrameJson(&s, compress, pHandle) → RA_GetRobotRosFrameJson(&s, compress, pHandle)
+•	robotInterface->GetRobotRootPosition(&x,&y,&z,pHandle) → RA_GetRobotRootPosition(&x,&y,&z,pHandle)
+•	robotInterface->GetRobotRootRotation(&x,&y,&z,&w,pHandle) → RA_GetRobotRootRotation(&x,&y,&z,&w,pHandle)
+•	robotInterface->RunRobotStep(pHandle) → RA_RunRobotStep(pHandle)
+•	robotInterface->DestroyRobot(pHandle) → RA_DestroyRobot(pHandle)
+
+
