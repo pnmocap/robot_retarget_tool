@@ -1,0 +1,424 @@
+[11:07:38] [trace] vge: Already included: Lib/Math.glsl, skipping
+[11:07:38] [trace] vge: Already included: Lib/Frustum.glsl, skipping
+[11:07:38] [trace] vge: Already included: Lib/Math.glsl, skipping
+[11:07:38] [trace] vge: Already included: Lib/SpaceTraversal.glsl, skipping
+[11:07:38] [trace] vge: Already included: Lib/BRDF.glsl, skipping
+[11:07:38] [trace] vge: Already included: Lib/Math.glsl, skipping
+[11:07:38] [trace] vge: Already included: Lib/Math.glsl, skipping
+[11:07:38] [trace] vge: Already included: Lib/Math.glsl, skipping
+[11:07:38] [info] vge: Created VAO: 18321423570139020029
+[11:07:38] [info] vge: Created buffer: 0x258e1975510
+[11:07:38] [info] vge: Created texture: 0x258e1975150
+[11:07:38] [info] vge: Created VAO: 4117590628754083159
+[11:07:38] [info] vge: Created pipeline: 12186128667742980927
+[11:07:38] [info] vge: Created pipeline: 13125131774341278748
+[11:07:38] [info] vge: Created pipeline: 8796793445778038305
+[11:07:38] [info] vge: Created pipeline: 4119747156148558671
+[11:07:38] [info] vge: Created VAO: 7784144130630303761
+[11:07:38] [info] vge: Created pipeline: 4053593842808065131
+[11:07:38] [info] vge: Created pipeline: 7237818210155839156
+[11:07:38] [info] vge: Created pipeline: 3461767134746994559
+[11:07:38] [info] vge: Created texture: 0x258e19750f0
+[11:07:38] [info] vge: Created texture: 0x258e19758d0
+[11:07:38] [info] vge: Created texture: 0x258e1975930
+[11:07:38] [info] vge: Created texture: 0x258e1975960
+[11:07:38] [info] vge: Created texture: 0x258e19756c0
+[11:07:38] [info] vge: Created pipeline: 13125131774341278748
+[11:07:38] [info] vge: Created pipeline: 8796793445778038305
+[11:07:38] [info] vge: Created pipeline: 7237818210155839156
+[11:07:38] [info] vge: Created pipeline: 4053593842808065131
+[11:07:38] [info] vge: Created pipeline: 3461767134746994559
+[11:07:38] [info] vge: Created pipeline: 4119747156148558671
+[11:07:38] [info] vge: Created pipeline: 12186128667742980927
+[11:07:38] [info] vge: Created buffer: 0x258e1975120
+[11:07:38] [info] vge: Created buffer: 0x258e1975990
+[11:07:38] [info] vge: Created buffer: 0x258e1975210
+[11:07:38] [info] vge: Created texture: 0x258e1975270
+[11:07:38] [info] vge: Created buffer: 0x258e19757e0
+[11:07:38] [info] vge: Created texture: 0x258e1975ab0
+[11:07:38] [info] vge: Created texture: 0x258e19751e0
+[11:07:38] [info] vge: Created texture: 0x258e1975240
+[11:07:38] [info] vge: Created texture: 0x258e19752a0
+[11:07:38] [info] vge: Created texture: 0x258e1975780
+[11:07:38] [info] vge: Created texture: 0x258e1975330
+[11:07:38] [info] vge: Created texture: 0x258e1976230
+[11:07:38] [info] vge: Created texture: 0x258e19763b0
+[11:07:38] [info] vge: Created texture: 0x258e1976200
+[11:07:38] [info] vge: Created texture: 0x258e1975d20
+[11:07:38] [info] vge: Created texture: 0x258e1975d50
+[11:07:38] [info] vge: Created texture: 0x258e1975fc0
+[11:07:38] [info] vge: Created texture: 0x258e1975d80
+[11:07:38] [info] vge: Created texture: 0x258e1975de0
+[11:07:38] [info] vge: Created texture: 0x258e1975ff0
+[11:07:38] [info] vge: Created texture: 0x258e19766e0
+[11:07:38] [info] vge: Created texture: 0x258e1976410
+[11:07:38] [info] vge: Created texture: 0x258e1976260
+[11:07:38] [info] vge: Created texture: 0x258e1976770
+[11:07:51] [info] vge: Body=world_link, Parent=robot_trans, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:51] [info] vge: Body=base_link_link, Parent=world_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:51] [info] vge: Geo=base_link_col, Body=base_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:51] [info] vge: Body=l_leg1_hip_r_link_link, Parent=base_link_link, Pos=(0,0.105,-0.037), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_leg1_hip_r_link_col, Body=l_leg1_hip_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_leg2_hip_y_link_link, Parent=l_leg1_hip_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_leg2_hip_y_link_col, Body=l_leg2_hip_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_leg3_hip_p_link_link, Parent=l_leg2_hip_y_link_link, Pos=(0,0,-0.1043), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_leg3_hip_p_link_col, Body=l_leg3_hip_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_leg4_knee_p_link_link, Parent=l_leg3_hip_p_link_link, Pos=(0,0,-0.369), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_leg4_knee_p_link_col, Body=l_leg4_knee_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_leg5_ankle_p_link_link, Parent=l_leg4_knee_p_link_link, Pos=(0,0,-0.369), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_leg5_ankle_p_link_col, Body=l_leg5_ankle_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_leg6_ankle_r_link_link, Parent=l_leg5_ankle_p_link_link, Pos=(0,0,-0.022), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_leg6_ankle_r_link_col, Body=l_leg6_ankle_r_link_link, Pos=(0.05,0,-0.0085), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=L_FOOT_CONTACT_link, Parent=l_leg6_ankle_r_link_link, Pos=(0,0,-0.05), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=LLT_FOOT_CONTACT_link, Parent=l_leg6_ankle_r_link_link, Pos=(0.1789,0.0456,-0.05), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=LRT_FOOT_CONTACT_link, Parent=l_leg6_ankle_r_link_link, Pos=(0.1789,-0.0456,-0.05), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=LLH_FOOT_CONTACT_link, Parent=l_leg6_ankle_r_link_link, Pos=(-0.07759999999999999,0.0456,-0.05), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=LRH_FOOT_CONTACT_link, Parent=l_leg6_ankle_r_link_link, Pos=(-0.07759999999999999,-0.0456,-0.05), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_leg1_hip_r_link_link, Parent=base_link_link, Pos=(0,-0.105,-0.037), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_leg1_hip_r_link_col, Body=r_leg1_hip_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_leg2_hip_y_link_link, Parent=r_leg1_hip_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_leg2_hip_y_link_col, Body=r_leg2_hip_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_leg3_hip_p_link_link, Parent=r_leg2_hip_y_link_link, Pos=(0,0,-0.1043), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_leg3_hip_p_link_col, Body=r_leg3_hip_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_leg4_knee_p_link_link, Parent=r_leg3_hip_p_link_link, Pos=(0,0,-0.369), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_leg4_knee_p_link_col, Body=r_leg4_knee_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_leg5_ankle_p_link_link, Parent=r_leg4_knee_p_link_link, Pos=(0,0,-0.369), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_leg5_ankle_p_link_col, Body=r_leg5_ankle_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_leg6_ankle_r_link_link, Parent=r_leg5_ankle_p_link_link, Pos=(0,0,-0.022), Quat=(1,0,0,0)
+[11:07:52] [warning] vge: Duplicate entity name stl_objects/box.stl, replace with stl_objects/box.stl1
+[11:07:52] [info] vge: Geo=r_leg6_ankle_r_link_col, Body=r_leg6_ankle_r_link_link, Pos=(0.05,0,-0.0085), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=R_FOOT_CONTACT_link, Parent=r_leg6_ankle_r_link_link, Pos=(0,0,-0.05), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=RLT_FOOT_CONTACT_link, Parent=r_leg6_ankle_r_link_link, Pos=(0.1789,0.0456,-0.05), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=RRT_FOOT_CONTACT_link, Parent=r_leg6_ankle_r_link_link, Pos=(0.1789,-0.0456,-0.05), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=RLH_FOOT_CONTACT_link, Parent=r_leg6_ankle_r_link_link, Pos=(-0.07759999999999999,0.0456,-0.05), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=RRH_FOOT_CONTACT_link, Parent=r_leg6_ankle_r_link_link, Pos=(-0.055,-0.0456,-0.05), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=waist1_r_link_link, Parent=base_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=waist1_r_link_col, Body=waist1_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=waist2_y_link_link, Parent=waist1_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=waist2_y_link_col, Body=waist2_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=trunk_link_link, Parent=waist2_y_link_link, Pos=(-0.015,0,0.399), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=trunk_link_col, Body=trunk_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=TORSO_CONTACT_link, Parent=trunk_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_arm1_shoulder_p_link_link, Parent=trunk_link_link, Pos=(-0.015,0.214,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_arm1_shoulder_p_link_col, Body=l_arm1_shoulder_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_arm2_shoulder_r_link_link, Parent=l_arm1_shoulder_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_arm2_shoulder_r_link_col, Body=l_arm2_shoulder_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_arm3_shoulder_y_link_link, Parent=l_arm2_shoulder_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_arm3_shoulder_y_link_col, Body=l_arm3_shoulder_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_arm4_elbow_p_link_link, Parent=l_arm3_shoulder_y_link_link, Pos=(0.017,0,-0.29), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_arm4_elbow_p_link_col, Body=l_arm4_elbow_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_arm5_wrist_y_link_link, Parent=l_arm4_elbow_p_link_link, Pos=(-0.017,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_arm5_wrist_y_link_col, Body=l_arm5_wrist_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_arm6_wrist_p_link_link, Parent=l_arm5_wrist_y_link_link, Pos=(0,0.0072,-0.259), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_arm6_wrist_p_link_col, Body=l_arm6_wrist_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_arm7_wrist_r_link_link, Parent=l_arm6_wrist_p_link_link, Pos=(0,-0.008199999999999999,-0.015), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_arm7_wrist_r_link_col, Body=l_arm7_wrist_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_hand_base_link, Parent=l_arm7_wrist_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_t_mcf_link, Parent=l_hand_base_link, Pos=(0.02450698328,-0.005605214135,-0.0275460981), Quat=(0.2648270129534083,0.8872662165814362,-0.06356389557613489,-0.3722699897958809)
+[11:07:52] [info] vge: Geo=l_t_mcf_col, Body=l_t_mcf_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_t_mcs_link, Parent=l_t_mcf_link, Pos=(0.0119,0,0), Quat=(0.7071067811865476,0.7071067811865476,0,0)
+[11:07:52] [info] vge: Geo=l_t_mcs_col, Body=l_t_mcs_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_t_pp_link, Parent=l_t_mcs_link, Pos=(0.0245,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_t_pp_col, Body=l_t_pp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_t_dp_link, Parent=l_t_pp_link, Pos=(0.0245,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_t_dp_col, Body=l_t_dp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_t_tip_link, Parent=l_t_dp_link, Pos=(0.01952083057,0.00240451496,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_i_ppf_link, Parent=l_hand_base_link, Pos=(0.031255,0.0021939999999999998,-0.08316), Quat=(0.5000000000000001,0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Geo=l_i_ppf_col, Body=l_i_ppf_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_i_pps_link, Parent=l_i_ppf_link, Pos=(0.009,0,0), Quat=(0.7057878845023698,0.7057878845023698,-0.04316783628663234,0.04316783628663234)
+[11:07:52] [info] vge: Geo=l_i_pps_col, Body=l_i_pps_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_i_mp_link, Parent=l_i_pps_link, Pos=(0.033,0.0015,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_i_mp_col, Body=l_i_mp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_i_dp_link, Parent=l_i_mp_link, Pos=(0.028,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_i_dp_col, Body=l_i_dp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_i_tip_link, Parent=l_i_dp_link, Pos=(0.018,0.0045,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_m_ppf_link, Parent=l_hand_base_link, Pos=(0.00925,0.0021939999999999998,-0.08866), Quat=(0.5000000000000001,0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Geo=l_m_ppf_col, Body=l_m_ppf_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_m_pps_link, Parent=l_m_ppf_link, Pos=(0.009,0,0), Quat=(0.7057878845023698,0.7057878845023698,-0.04316783628663234,0.04316783628663234)
+[11:07:52] [info] vge: Geo=l_m_pps_col, Body=l_m_pps_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_m_mp_link, Parent=l_m_pps_link, Pos=(0.033,0.0015,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_m_mp_col, Body=l_m_mp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_m_dp_link, Parent=l_m_mp_link, Pos=(0.028,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_m_dp_col, Body=l_m_dp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_m_tip_link, Parent=l_m_dp_link, Pos=(0.018,0.0045,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_r_pp_link, Parent=l_hand_base_link, Pos=(-0.011979,0.00159,-0.092168), Quat=(0.0446944066384497,0.6807162462159061,-0.04161670254002808,-0.7299971590510868)
+[11:07:52] [info] vge: Geo=l_r_pp_col, Body=l_r_pp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_r_mp_link, Parent=l_r_pp_link, Pos=(0.031,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_r_mp_col, Body=l_r_mp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_r_dp_link, Parent=l_r_mp_link, Pos=(0.028038399999999998,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_r_dp_col, Body=l_r_dp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_r_tip_link, Parent=l_r_dp_link, Pos=(0.015009999999999999,0.0053,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_l_pp_link, Parent=l_hand_base_link, Pos=(-0.032449,0.00159,-0.08080899999999999), Quat=(0.04609954715780226,0.6548102919074357,-0.040065971342154866,-0.7533213333660171)
+[11:07:52] [info] vge: Geo=l_l_pp_col, Body=l_l_pp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_l_mp_link, Parent=l_l_pp_link, Pos=(0.031,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_l_mp_col, Body=l_l_mp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_l_dp_link, Parent=l_l_mp_link, Pos=(0.028038399999999998,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=l_l_dp_col, Body=l_l_dp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=l_l_tip_link, Parent=l_l_dp_link, Pos=(0.015009999999999999,0.0053,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_arm1_shoulder_p_link_link, Parent=trunk_link_link, Pos=(-0.015,-0.214,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_arm1_shoulder_p_link_col, Body=r_arm1_shoulder_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_arm2_shoulder_r_link_link, Parent=r_arm1_shoulder_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_arm2_shoulder_r_link_col, Body=r_arm2_shoulder_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_arm3_shoulder_y_link_link, Parent=r_arm2_shoulder_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_arm3_shoulder_y_link_col, Body=r_arm3_shoulder_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_arm4_elbow_p_link_link, Parent=r_arm3_shoulder_y_link_link, Pos=(0.017,0,-0.29), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_arm4_elbow_p_link_col, Body=r_arm4_elbow_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_arm5_wrist_y_link_link, Parent=r_arm4_elbow_p_link_link, Pos=(-0.017,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_arm5_wrist_y_link_col, Body=r_arm5_wrist_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_arm6_wrist_p_link_link, Parent=r_arm5_wrist_y_link_link, Pos=(0,-0.0072,-0.259), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_arm6_wrist_p_link_col, Body=r_arm6_wrist_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_arm7_wrist_r_link_link, Parent=r_arm6_wrist_p_link_link, Pos=(0,0.008199999999999999,-0.015), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_arm7_wrist_r_link_col, Body=r_arm7_wrist_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_hand_base_link, Parent=r_arm7_wrist_r_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_t_mcf_link, Parent=r_hand_base_link, Pos=(0.02450698328,0.005605214135,-0.0275460981), Quat=(0.8872659906972169,0.26482833601363165,0.37226904841703984,0.0635670495383326)
+[11:07:52] [info] vge: Geo=r_t_mcf_col, Body=r_t_mcf_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_t_mcs_link, Parent=r_t_mcf_link, Pos=(0.0119,0,0), Quat=(0.7071067811865476,-0.7071067811865476,0,0)
+[11:07:52] [info] vge: Geo=r_t_mcs_col, Body=r_t_mcs_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_t_pp_link, Parent=r_t_mcs_link, Pos=(0.0245,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_t_pp_col, Body=r_t_pp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_t_dp_link, Parent=r_t_pp_link, Pos=(0.0245,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_t_dp_col, Body=r_t_dp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_t_tip_link, Parent=r_t_dp_link, Pos=(0.01952083057,0.00240451496,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_i_ppf_link, Parent=r_hand_base_link, Pos=(0.03125369959,-0.002194199459,-0.08314113692), Quat=(0.5000000000000001,0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Geo=r_i_ppf_col, Body=r_i_ppf_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_i_pps_link, Parent=r_i_ppf_link, Pos=(0.009,0,0), Quat=(0.7057878845023698,-0.7057878845023698,0.04316783628663234,0.04316783628663234)
+[11:07:52] [info] vge: Geo=r_i_pps_col, Body=r_i_pps_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_i_mp_link, Parent=r_i_pps_link, Pos=(0.033,0.0015,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_i_mp_col, Body=r_i_mp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_i_dp_link, Parent=r_i_mp_link, Pos=(0.028,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_i_dp_col, Body=r_i_dp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_i_tip_link, Parent=r_i_dp_link, Pos=(0.018,0.0045,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_m_ppf_link, Parent=r_hand_base_link, Pos=(0.009250500258,-0.002194199459,-0.08864566757999999), Quat=(0.5000000000000001,0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Geo=r_m_ppf_col, Body=r_m_ppf_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_m_pps_link, Parent=r_m_ppf_link, Pos=(0.009,0,0), Quat=(0.7057878845023698,-0.7057878845023698,0.04316783628663234,0.04316783628663234)
+[11:07:52] [info] vge: Geo=r_m_pps_col, Body=r_m_pps_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_m_mp_link, Parent=r_m_pps_link, Pos=(0.033,0.0015,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_m_mp_col, Body=r_m_mp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_m_dp_link, Parent=r_m_mp_link, Pos=(0.028,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_m_dp_col, Body=r_m_dp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_m_tip_link, Parent=r_m_dp_link, Pos=(0.018,0.0045,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_r_pp_link, Parent=r_hand_base_link, Pos=(-0.011979,-0.001589,-0.092168), Quat=(0.6807178059302958,0.04467064513168839,0.7299957059093811,0.04164218422257998)
+[11:07:52] [info] vge: Geo=r_r_pp_col, Body=r_r_pp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_r_mp_link, Parent=r_r_pp_link, Pos=(0.031,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_r_mp_col, Body=r_r_mp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_r_dp_link, Parent=r_r_mp_link, Pos=(0.028038399999999998,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_r_dp_col, Body=r_r_dp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_r_tip_link, Parent=r_r_dp_link, Pos=(0.015009999999999999,0.0053,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_l_pp_link, Parent=r_hand_base_link, Pos=(-0.03245,-0.0015891,-0.08080899999999999), Quat=(0.6548356331084194,0.0460744276932577,0.753301525663023,0.04005311670764494)
+[11:07:52] [info] vge: Geo=r_l_pp_col, Body=r_l_pp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_l_mp_link, Parent=r_l_pp_link, Pos=(0.031,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_l_mp_col, Body=r_l_mp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_l_dp_link, Parent=r_l_mp_link, Pos=(0.028038399999999998,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=r_l_dp_col, Body=r_l_dp_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=r_l_tip_link, Parent=r_l_dp_link, Pos=(0.015009999999999999,0.0053,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=head1_y_link_link, Parent=trunk_link_link, Pos=(0.00097312836,0,0.16750326659999998), Quat=(0.9961946980917455,0,0.08715574274765817,0)
+[11:07:52] [info] vge: Geo=head1_y_link_col, Body=head1_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=head2_p_link_link, Parent=head1_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Geo=head2_p_link_col, Body=head2_p_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=head_front_left_fisheye_color_frame_link, Parent=head2_p_link_link, Pos=(0.09803908070100001,0.030018380264,0.044987832015), Quat=(0.9969091826513257,0.002852844430322451,0.043525994909502895,0.0653408799394377)
+[11:07:52] [info] vge: Body=head_front_left_fisheye_color_optical_frame_link, Parent=head_front_left_fisheye_color_frame_link, Pos=(0,0,0), Quat=(0.5000000000000001,-0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Body=head_front_right_fisheye_color_frame_link, Parent=head2_p_link_link, Pos=(0.09803908070100001,-0.030018380264,0.044987832015), Quat=(0.9969091826513257,-0.002852844430322451,0.043525994909502895,-0.0653408799394377)
+[11:07:52] [info] vge: Body=head_front_right_fisheye_color_optical_frame_link, Parent=head_front_right_fisheye_color_frame_link, Pos=(0,0,0), Quat=(0.5000000000000001,-0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Body=head_left_fisheye_color_frame_link, Parent=head2_p_link_link, Pos=(0.00027503175899999997,0.07443867735000001,0.07921831675), Quat=(0.7071067737711466,-0.12278782642307759,2.4253505467863867e-08,0.6963642438905491)
+[11:07:52] [info] vge: Body=head_left_fisheye_color_optical_frame_link, Parent=head_left_fisheye_color_frame_link, Pos=(0,0,0), Quat=(0.5000000000000001,-0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Body=head_right_fisheye_color_frame_link, Parent=head2_p_link_link, Pos=(0.00027503175899999997,-0.07443867735000001,0.07921831675), Quat=(0.7071067737711466,0.12278782642307759,2.4253505467863867e-08,-0.6963642438905491)
+[11:07:52] [info] vge: Body=head_right_fisheye_color_optical_frame_link, Parent=head_right_fisheye_color_frame_link, Pos=(0,0,0), Quat=(0.5000000000000001,-0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Body=head_back_camera_color_frame_link, Parent=head2_p_link_link, Pos=(-0.08058669539999999,0,0.055579295364), Quat=(5.5035262594648646e-17,-0.4383711467890774,2.684249108768991e-17,0.898794046299167)
+[11:07:52] [info] vge: Body=head_back_camera_color_optical_frame_link, Parent=head_back_camera_color_frame_link, Pos=(0,0,0), Quat=(0.5000000000000001,-0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Body=head_imu_frame_link, Parent=head2_p_link_link, Pos=(0.043964119163,-4.2862589999999994e-06,0.053756160319999996), Quat=(3.749399456654644e-33,6.123233995736766e-17,1,6.123233995736766e-17)
+[11:07:52] [info] vge: Body=trunk_imu_frame_link, Parent=trunk_link_link, Pos=(-0.00799904,0,-0.3115625), Quat=(6.123233995736766e-17,0,0,1)
+[11:07:52] [info] vge: Body=trunk_realsense_frame_link, Parent=waist2_y_link_link, Pos=(0.048301933787000005,-0.000283397872,0.0695784975), Quat=(0.9238755571261087,0.0011226286601475472,0.38268178570663336,-0.002710265336836944)
+[11:07:52] [info] vge: Body=trunk_camera_bottom_screw_frame_link, Parent=trunk_realsense_frame_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=trunk_camera_link_link, Parent=trunk_camera_bottom_screw_frame_link, Pos=(0.010600000000000002,0.0175,0.0125), Quat=(1,0,0,0)
+[11:07:52] [warning] vge: Duplicate entity name stl_objects/box.stl, replace with stl_objects/box.stl2
+[11:07:52] [info] vge: Geo=trunk_camera_link_col, Body=trunk_camera_link_link, Pos=(-0.0043,-0.0175,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=trunk_camera_depth_frame_link, Parent=trunk_camera_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=trunk_camera_depth_optical_frame_link, Parent=trunk_camera_depth_frame_link, Pos=(0,0,0), Quat=(0.5000000000000001,-0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Body=trunk_camera_infra1_frame_link, Parent=trunk_camera_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=trunk_camera_infra1_optical_frame_link, Parent=trunk_camera_infra1_frame_link, Pos=(0,0,0), Quat=(0.5000000000000001,-0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Body=trunk_camera_infra2_frame_link, Parent=trunk_camera_link_link, Pos=(0,-0.05,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=trunk_camera_infra2_optical_frame_link, Parent=trunk_camera_infra2_frame_link, Pos=(0,0,0), Quat=(0.5000000000000001,-0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Body=trunk_camera_color_frame_link, Parent=trunk_camera_link_link, Pos=(0,0.015,0), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=trunk_camera_color_optical_frame_link, Parent=trunk_camera_color_frame_link, Pos=(0,0,0), Quat=(0.5000000000000001,-0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Body=trunk_camera_accel_frame_link, Parent=trunk_camera_link_link, Pos=(-0.01174,-0.00552,0.0051), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=trunk_camera_accel_optical_frame_link, Parent=trunk_camera_accel_frame_link, Pos=(0,0,0), Quat=(0.5000000000000001,-0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: Body=trunk_camera_gyro_frame_link, Parent=trunk_camera_link_link, Pos=(-0.01174,-0.00552,0.0051), Quat=(1,0,0,0)
+[11:07:52] [info] vge: Body=trunk_camera_gyro_optical_frame_link, Parent=trunk_camera_gyro_frame_link, Pos=(0,0,0), Quat=(0.5000000000000001,-0.5000000000000001,0.5000000000000001,-0.5000000000000001)
+[11:07:52] [info] vge: l_leg1_hip_r_joint: pos=(0,0.105,-0.037, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_leg2_hip_y_joint: pos=(0,0.105,-0.037, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_leg3_hip_p_joint: pos=(0,0.105,-0.1413, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_leg4_knee_p_joint: pos=(0,0.105,-0.5103, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_leg5_ankle_p_joint: pos=(0,0.105,-0.8793, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_leg6_ankle_r_joint: pos=(0,0.105,-0.9013, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_leg1_hip_r_joint: pos=(0,-0.105,-0.037, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_leg2_hip_y_joint: pos=(0,-0.105,-0.037, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_leg3_hip_p_joint: pos=(0,-0.105,-0.1413, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_leg4_knee_p_joint: pos=(0,-0.105,-0.5103, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_leg5_ankle_p_joint: pos=(0,-0.105,-0.8793, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_leg6_ankle_r_joint: pos=(0,-0.105,-0.9013, rot=(1,0,0,0)
+[11:07:52] [info] vge: waist1_r_joint: pos=(0,0,0, rot=(1,0,0,0)
+[11:07:52] [info] vge: waist2_y_joint: pos=(0,0,0, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_arm1_shoulder_p_joint: pos=(-0.03,0.214,0.399, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_arm2_shoulder_r_joint: pos=(-0.03,0.214,0.399, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_arm3_shoulder_y_joint: pos=(-0.03,0.214,0.399, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_arm4_elbow_p_joint: pos=(-0.012999998,0.214,0.109, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_arm5_wrist_y_joint: pos=(-0.03,0.214,0.109, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_arm6_wrist_p_joint: pos=(-0.03,0.2212,-0.15, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_arm7_wrist_r_joint: pos=(-0.03,0.213,-0.165, rot=(1,0,0,0)
+[11:07:52] [info] vge: l_t_cmcf: pos=(-0.005493017,0.20739478,-0.1925461, rot=(0.264827,0.8872662,-0.0635639,-0.37227)
+[11:07:52] [info] vge: l_t_cmcs: pos=(0.0030125007,0.20370613,-0.20000666, rot=(-0.44013095,0.8146529,-0.30818108,-0.21828815)
+[11:07:52] [info] vge: l_t_mcp: pos=(0.020523861,0.19611186,-0.21536665, rot=(-0.44013095,0.8146529,-0.30818108,-0.21828815)
+[11:07:52] [info] vge: l_t_ip: pos=(0.03803522,0.18851759,-0.23072663, rot=(-0.44013095,0.8146529,-0.30818108,-0.21828815)
+[11:07:52] [info] vge: l_i_mcpf: pos=(0.001255,0.215194,-0.24816, rot=(0.5,0.5,0.5,-0.5)
+[11:07:52] [info] vge: l_i_mcps: pos=(0.001255,0.215194,-0.25716, rot=(0.043167837,0.7057879,-0.043167833,-0.7057879)
+[11:07:52] [info] vge: l_i_pip: pos=(0.001255,0.2096835,-0.28973123, rot=(0.043167837,0.7057879,-0.043167833,-0.7057879)
+[11:07:52] [info] vge: l_i_dip: pos=(0.0012549981,0.20627116,-0.31752253, rot=(0.043167837,0.7057879,-0.043167833,-0.7057879)
+[11:07:52] [info] vge: l_m_mcpf: pos=(-0.02075,0.215194,-0.25366002, rot=(0.5,0.5,0.5,-0.5)
+[11:07:52] [info] vge: l_m_mcps: pos=(-0.02075,0.215194,-0.26266003, rot=(0.043167837,0.7057879,-0.043167833,-0.7057879)
+[11:07:52] [info] vge: l_m_pip: pos=(-0.02075,0.2096835,-0.29523125, rot=(0.043167837,0.7057879,-0.043167833,-0.7057879)
+[11:07:52] [info] vge: l_m_dip: pos=(-0.020750001,0.20627116,-0.32302254, rot=(0.043167837,0.7057879,-0.043167833,-0.7057879)
+[11:07:52] [info] vge: l_r_mcp: pos=(-0.041979,0.21459,-0.257168, rot=(0.044694405,0.6807162,-0.041616704,-0.72999716)
+[11:07:52] [info] vge: l_r_pip: pos=(-0.044125922,0.21081074,-0.28786176, rot=(0.044694405,0.6807162,-0.041616704,-0.72999716)
+[11:07:52] [info] vge: l_r_dip: pos=(-0.046067737,0.20739251,-0.3156232, rot=(0.044694405,0.6807162,-0.041616704,-0.72999716)
+[11:07:52] [info] vge: l_l_mcp: pos=(-0.062449,0.21459,-0.245809, rot=(0.046099547,0.6548103,-0.04006597,-0.75332135)
+[11:07:52] [info] vge: l_l_pip: pos=(-0.0667331,0.21081027,-0.27627802, rot=(0.046099547,0.6548103,-0.04006597,-0.75332135)
+[11:07:52] [info] vge: l_l_dip: pos=(-0.070607916,0.20739165,-0.30383617, rot=(0.046099547,0.6548103,-0.04006597,-0.75332135)
+[11:07:52] [info] vge: r_arm1_shoulder_p_joint: pos=(-0.03,-0.214,0.399, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_arm2_shoulder_r_joint: pos=(-0.03,-0.214,0.399, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_arm3_shoulder_y_joint: pos=(-0.03,-0.214,0.399, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_arm4_elbow_p_joint: pos=(-0.012999998,-0.214,0.109, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_arm5_wrist_y_joint: pos=(-0.03,-0.214,0.109, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_arm6_wrist_p_joint: pos=(-0.03,-0.2212,-0.15, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_arm7_wrist_r_joint: pos=(-0.03,-0.213,-0.165, rot=(1,0,0,0)
+[11:07:52] [info] vge: r_t_cmcf: pos=(-0.005493017,-0.20739478,-0.1925461, rot=(0.887266,0.26482832,0.37226903,0.06356705)
+[11:07:52] [info] vge: r_t_cmcs: pos=(0.0030125082,-0.20370606,-0.20000662, rot=(0.81465364,-0.44012988,0.21828526,0.30818266)
+[11:07:52] [info] vge: r_t_mcp: pos=(0.020523883,-0.19611163,-0.21536651, rot=(0.81465364,-0.44012988,0.21828526,0.30818266)
+[11:07:52] [info] vge: r_t_ip: pos=(0.03803526,-0.18851721,-0.2307264, rot=(0.81465364,-0.44012988,0.21828526,0.30818266)
+[11:07:52] [info] vge: r_i_mcpf: pos=(0.0012536999,-0.2151942,-0.24814114, rot=(0.5,0.5,0.5,-0.5)
+[11:07:52] [info] vge: r_i_mcps: pos=(0.0012536999,-0.2151942,-0.25714114, rot=(0.7057879,0.043167837,0.7057879,0.04316783)
+[11:07:52] [info] vge: r_i_pip: pos=(0.0012536962,-0.20968369,-0.28971237, rot=(0.7057879,0.043167837,0.7057879,0.04316783)
+[11:07:52] [info] vge: r_i_dip: pos=(0.0012536943,-0.20627135,-0.31750366, rot=(0.7057879,0.043167837,0.7057879,0.04316783)
+[11:07:52] [info] vge: r_m_mcpf: pos=(-0.020749498,-0.2151942,-0.25364566, rot=(0.5,0.5,0.5,-0.5)
+[11:07:52] [info] vge: r_m_mcps: pos=(-0.020749498,-0.2151942,-0.26264566, rot=(0.7057879,0.043167837,0.7057879,0.04316783)
+[11:07:52] [info] vge: r_m_pip: pos=(-0.020749502,-0.20968369,-0.2952169, rot=(0.7057879,0.043167837,0.7057879,0.04316783)
+[11:07:52] [info] vge: r_m_dip: pos=(-0.020749504,-0.20627135,-0.32300818, rot=(0.7057879,0.043167837,0.7057879,0.04316783)
+[11:07:52] [info] vge: r_r_mcp: pos=(-0.041979,-0.214589,-0.257168, rot=(0.6807178,0.044670645,0.7299957,0.041642185)
+[11:07:52] [info] vge: r_r_pip: pos=(-0.044125926,-0.21080974,-0.28786176, rot=(0.6807178,0.044670645,0.7299957,0.041642185)
+[11:07:52] [info] vge: r_r_dip: pos=(-0.046067744,-0.20739152,-0.3156232, rot=(0.6807178,0.044670645,0.7299957,0.041642185)
+[11:07:52] [info] vge: r_l_mcp: pos=(-0.06245,-0.2145891,-0.245809, rot=(0.65483564,0.046074428,0.7533015,0.040053118)
+[11:07:52] [info] vge: r_l_pip: pos=(-0.06673218,-0.21081106,-0.2762785, rot=(0.65483564,0.046074428,0.7533015,0.040053118)
+[11:07:52] [info] vge: r_l_dip: pos=(-0.07060526,-0.20739396,-0.30383706, rot=(0.65483564,0.046074428,0.7533015,0.040053118)
+[11:07:52] [info] vge: head1_y_joint: pos=(-0.014026871,0,0.5665033, rot=(0.9961947,0,0.087155744,0)
+[11:07:52] [info] vge: head2_p_joint: pos=(-0.014026871,0,0.5665033, rot=(0.9961947,0,0.087155744,0)
+[11:07:52] [info] vge: Created VAO: 10989998421479126538
+[11:07:52] [info] vge: Created pipeline: 6951005034478401311
+[11:07:52] [info] vge: Created pipeline: 6951005034478401311
+[11:07:53] [info] vge: MocapApi Version: 0.0.68.1d96a300
+[11:08:05] [info] vge: Created texture: 0x258e1afb880
+[11:08:05] [info] vge: Created texture: 0x258e1afb820
+[11:08:05] [info] vge: Created texture: 0x258e1afb700
+[11:08:05] [info] vge: Created texture: 0x258e1afb4f0
+[11:08:05] [info] vge: Created texture: 0x258e1afb8b0
+[11:08:05] [info] vge: Created buffer: 0x258e1afb940
+[11:08:05] [info] vge: Created texture: 0x258e1afb610
+[11:08:05] [info] vge: Created buffer: 0x258e1afb9d0
+[11:08:05] [info] vge: Created texture: 0x258e1afba30
+[11:08:05] [info] vge: Created texture: 0x258e1afb8e0
+[11:08:05] [info] vge: Created texture: 0x258e1af9e10
+[11:08:05] [info] vge: Created texture: 0x258e1afa290
+[11:08:05] [info] vge: Created texture: 0x258e1af9ea0
+[11:08:05] [info] vge: Created texture: 0x258e1af9ed0
+[11:08:05] [info] vge: Created texture: 0x258e1af9db0
+[11:08:05] [info] vge: Created texture: 0x258e1afa5f0
+[11:08:05] [info] vge: Created texture: 0x258e1af9de0
+[11:08:05] [info] vge: Created texture: 0x258e1afa740
+[11:08:05] [info] vge: Created texture: 0x258e1afa0e0
+[11:08:05] [info] vge: Created texture: 0x258e1afa7a0
+[11:08:05] [info] vge: Created texture: 0x258e1af9c30
+[11:08:05] [info] vge: Created texture: 0x258e1af9f60
+[11:08:05] [info] vge: Created texture: 0x258e1afa500
+[11:08:05] [info] vge: Created texture: 0x258e1afa320
+[11:08:05] [info] vge: Created texture: 0x258e1af9e40
+[11:08:05] [info] vge: Created texture: 0x258e1afa140
+[11:08:05] [info] vge: Created texture: 0x258e1afa530
+[11:08:05] [info] vge: Created texture: 0x258e1afb910
+[11:08:05] [info] vge: Created texture: 0x258e1afa950
+[11:08:05] [info] vge: Created texture: 0x258e1afb190
+[11:08:05] [info] vge: Created texture: 0x258e1afb4c0
+[11:08:05] [info] vge: Created texture: 0x258e1afb220
+[11:08:05] [info] vge: Created buffer: 0x258e1afb970
+[11:08:05] [info] vge: Created texture: 0x258e1afb520
+[11:08:05] [info] vge: Created buffer: 0x258e1afaa10
+[11:08:05] [info] vge: Created texture: 0x258e1afae90
+[11:08:05] [info] vge: Created texture: 0x258e1f3c970
+[11:08:05] [info] vge: Created texture: 0x258e1f3c0a0
+[11:08:05] [info] vge: Created texture: 0x258e1f3c6a0
+[11:08:05] [info] vge: Created texture: 0x258e1f3c880
+[11:08:05] [info] vge: Created texture: 0x258e1f3c8e0
+[11:08:05] [info] vge: Created texture: 0x258e1f3ca30
+[11:08:05] [info] vge: Created texture: 0x258e1f3c9a0
+[11:08:05] [info] vge: Created texture: 0x258e1f3c370
+[11:08:05] [info] vge: Created texture: 0x258e1f3c4f0
+[11:08:05] [info] vge: Created texture: 0x258e1f3c130
+[11:08:05] [info] vge: Created texture: 0x258e1f3c760
+[11:08:05] [info] vge: Created texture: 0x258e1f3c730
+[11:08:05] [info] vge: Created texture: 0x258e1f3c190
+[11:08:05] [info] vge: Created texture: 0x258e1f3c1f0
+[11:08:05] [info] vge: Created texture: 0x258e1f3cb50
+[11:08:05] [info] vge: Created texture: 0x258e1f3d390
+[11:08:05] [info] vge: Created texture: 0x258e1f3c3a0
+[11:08:05] [info] vge: Created texture: 0x258e1f3d4b0
+[11:08:06] [info] vge: Released resource: 0x258e1976410
+[11:08:06] [info] vge: Released resource: 0x258e19750f0
+[11:08:06] [info] vge: Released resource: 0x258e19758d0
+[11:08:06] [info] vge: Released resource: 0x258e1975330
+[11:08:06] [info] vge: Released resource: 0x258e1975960
+[11:08:06] [info] vge: Released resource: 0x258e1975ab0
+[11:08:06] [info] vge: Released resource: 0x258e1975930
+[11:08:06] [info] vge: Released resource: 0x258e19756c0
+[11:08:06] [info] vge: Released resource: 0x258e1975270
+[11:08:06] [info] vge: Released resource: 0x258e19751e0
+[11:08:06] [info] vge: Released resource: 0x258e1975780
+[11:08:06] [info] vge: Released resource: 0x258e19752a0
+[11:08:06] [info] vge: Released resource: 0x258e1975240
+[11:08:06] [info] vge: Released resource: 0x258e1976230
+[11:08:06] [info] vge: Released resource: 0x258e19763b0
+[11:08:06] [info] vge: Released resource: 0x258e1976200
+[11:08:06] [info] vge: Released resource: 0x258e1975d20
+[11:08:06] [info] vge: Released resource: 0x258e1975d50
+[11:08:06] [info] vge: Released resource: 0x258e1975de0
+[11:08:06] [info] vge: Released resource: 0x258e1975fc0
+[11:08:06] [info] vge: Released resource: 0x258e1975d80
+[11:08:06] [info] vge: Released resource: 0x258e1975ff0
+[11:08:06] [info] vge: Released resource: 0x258e19766e0
+[11:08:06] [info] vge: Released resource: 0x258e1976260
+[11:08:06] [info] vge: Released resource: 0x258e1976770
+[11:08:06] [info] vge: Released resource: 0x258e19757e0
+[11:08:06] [info] vge: Released resource: 0x258e1975990
+[11:08:06] [info] vge: Released resource: 0x258e1afb880
+[11:08:06] [info] vge: Released resource: 0x258e1af9de0
+[11:08:06] [info] vge: Released resource: 0x258e1af9db0
+[11:08:06] [info] vge: Released resource: 0x258e1af9e40
+[11:08:06] [info] vge: Released resource: 0x258e1af9f60
+[11:08:06] [info] vge: Released resource: 0x258e1af9ed0
+[11:08:06] [info] vge: Released resource: 0x258e1afb4f0
+[11:08:06] [info] vge: Released resource: 0x258e1afb820
+[11:08:06] [info] vge: Released resource: 0x258e1afa740
+[11:08:06] [info] vge: Released resource: 0x258e1afba30
+[11:08:06] [info] vge: Released resource: 0x258e1afb8b0
+[11:08:06] [info] vge: Released resource: 0x258e1afb700
+[11:08:06] [info] vge: Released resource: 0x258e1afb610
+[11:08:06] [info] vge: Released resource: 0x258e1afb8e0
+[11:08:06] [info] vge: Released resource: 0x258e1af9ea0
+[11:08:06] [info] vge: Released resource: 0x258e1afa290
+[11:08:06] [info] vge: Released resource: 0x258e1af9e10
+[11:08:06] [info] vge: Released resource: 0x258e1afa5f0
+[11:08:06] [info] vge: Released resource: 0x258e1afa0e0
+[11:08:06] [info] vge: Released resource: 0x258e1afa7a0
+[11:08:06] [info] vge: Released resource: 0x258e1af9c30
+[11:08:06] [info] vge: Released resource: 0x258e1afa500
+[11:08:06] [info] vge: Released resource: 0x258e1afa320
+[11:08:06] [info] vge: Released resource: 0x258e1afa530
+[11:08:06] [info] vge: Released resource: 0x258e1afa140
+[11:08:06] [info] vge: Released resource: 0x258e1afb9d0
+[11:08:06] [info] vge: Released resource: 0x258e1afb940

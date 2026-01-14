@@ -1,0 +1,7 @@
+{
+  "name": "mask",
+  "shadingModel": "DefaultLit",
+  "blendMode": "Opaque",
+  "cullMode": "None",
+  "fragmentShader": "mask.frag"
+}

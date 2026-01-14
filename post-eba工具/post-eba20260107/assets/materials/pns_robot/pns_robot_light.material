@@ -1,0 +1,7 @@
+{
+  "name": "light",
+  "shadingModel": "DefaultLit",
+  "blendMode": "Opaque",
+  "cullMode": "None",
+  "fragmentShader": "light.frag"
+}

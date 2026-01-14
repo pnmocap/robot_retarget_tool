@@ -1,0 +1,7 @@
+{
+  "name": "default",
+  "shadingModel": "DefaultLit",
+  "blendMode": "Opaque",
+  "cullMode": "None",
+  "fragmentShader": "code.frag"
+}

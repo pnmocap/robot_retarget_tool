@@ -1,0 +1,7 @@
+{
+  "name": "logo",
+  "shadingModel": "DefaultLit",
+  "blendMode": "Opaque",
+  "cullMode": "None",
+  "fragmentShader": "logo.frag"
+}

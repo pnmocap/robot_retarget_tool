@@ -1,0 +1,7 @@
+{
+  "name": "dark",
+  "shadingModel": "DefaultLit",
+  "blendMode": "Opaque",
+  "cullMode": "None",
+  "fragmentShader": "dark.frag"
+}
