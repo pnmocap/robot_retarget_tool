@@ -591,6 +591,7 @@ namespace eba {
 
     void Robot::solveHumanoid()
     {
+        float temp_angle = 0.0f;
         // 躯干
         if (1)
         {
@@ -607,6 +608,7 @@ namespace eba {
                 SetRawJointAngle(JointSpine_Yaw, mocap_spine_total_euler[0] - glm::radians(90.0));
                 SetRawJointAngle(JointSpine_Roll, mocap_spine_total_euler[1]);
                 SetRawJointAngle(JointSpine_Pitch, mocap_spine_total_euler[2]);
+                temp_angle= mocap_spine_total_euler[2];
             }
             else if (m_config.spineOrder == EulerOrder{ 0, 2, 1 })
             {
@@ -615,6 +617,7 @@ namespace eba {
                 SetRawJointAngle(JointSpine_Roll, mocap_spine_total_euler[0] - glm::radians(90.0));
                 SetRawJointAngle(JointSpine_Yaw, mocap_spine_total_euler[1]);
                 SetRawJointAngle(JointSpine_Pitch, mocap_spine_total_euler[2]);
+                temp_angle = mocap_spine_total_euler[2];
             }
             else if (m_config.spineOrder == EulerOrder{ 1, 0, 2 })
             {
@@ -623,6 +626,7 @@ namespace eba {
                 SetRawJointAngle(JointSpine_Pitch, mocap_spine_total_euler[0] - glm::radians(90.0));
                 SetRawJointAngle(JointSpine_Roll, mocap_spine_total_euler[1]);
                 SetRawJointAngle(JointSpine_Yaw, mocap_spine_total_euler[2]);
+                temp_angle = mocap_spine_total_euler[2];
             }
         }
 
@@ -700,10 +704,10 @@ namespace eba {
                 }
 
                 mocap_upleg_rot = glm::angleAxis(glm::radians(offset), axisOffset) * mocap_upleg_rot; // 哪个轴开始有跳变，就转个90规避
-                auto mocap_upleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder); // 根据机械结构确定轴序
-                SetRawJointAngle(JointLeftHip_Yaw, mocap_upleg_euler[0] - glm::radians(offset)); // 相应的折算回偏移
-                SetRawJointAngle(JointLeftHip_Roll, mocap_upleg_euler[1]);
-                SetRawJointAngle(JointLeftHip_Pitch, mocap_upleg_euler[2]);
+                auto mocap_uleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder); // 根据机械结构确定轴序
+                SetRawJointAngle(JointLeftHip_Yaw, mocap_uleg_euler[0] - glm::radians(offset)); // 相应的折算回偏移
+                SetRawJointAngle(JointLeftHip_Roll, mocap_uleg_euler[1]);
+                SetRawJointAngle(JointLeftHip_Pitch, mocap_uleg_euler[2]);
             }
             else if (m_config.hipOrder == EulerOrder{ 1, 2, 0 })
             {
@@ -721,10 +725,10 @@ namespace eba {
                 }
 
                 mocap_upleg_rot = glm::angleAxis(glm::radians(offset), axisOffset) * mocap_upleg_rot;
-                auto mocap_upleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
-                SetRawJointAngle(JointLeftHip_Pitch, mocap_upleg_euler[0] - glm::radians(offset));
-                SetRawJointAngle(JointLeftHip_Yaw, mocap_upleg_euler[1]);
-                SetRawJointAngle(JointLeftHip_Roll, mocap_upleg_euler[2]);
+                auto mocap_uleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
+                SetRawJointAngle(JointLeftHip_Pitch, mocap_uleg_euler[0] - glm::radians(offset) - temp_angle);
+                SetRawJointAngle(JointLeftHip_Yaw, mocap_uleg_euler[1]);
+                SetRawJointAngle(JointLeftHip_Roll, mocap_uleg_euler[2]);
             }
             else if (m_config.hipOrder == EulerOrder{ 0, 2, 1 })
             {
@@ -742,10 +746,10 @@ namespace eba {
                 }
 
                 mocap_upleg_rot = glm::angleAxis(glm::radians(offset), axisOffset) * mocap_upleg_rot;
-                auto mocap_upleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
-                SetRawJointAngle(JointLeftHip_Pitch, mocap_upleg_euler[0] - glm::radians(offset));
-                SetRawJointAngle(JointLeftHip_Yaw, mocap_upleg_euler[1]);
-                SetRawJointAngle(JointLeftHip_Roll, mocap_upleg_euler[2]);
+                auto mocap_uleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
+                SetRawJointAngle(JointLeftHip_Pitch, mocap_uleg_euler[0] - glm::radians(offset));
+                SetRawJointAngle(JointLeftHip_Yaw, mocap_uleg_euler[1]);
+                SetRawJointAngle(JointLeftHip_Roll, mocap_uleg_euler[2]);
             }
             //增加1  0 2结构
             else if (m_config.hipOrder == EulerOrder{ 1, 0, 2 })
@@ -764,10 +768,12 @@ namespace eba {
                 }
 
                 mocap_upleg_rot = glm::angleAxis(glm::radians(offset), axisOffset) * mocap_upleg_rot;
-                auto mocap_upleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
-                SetRawJointAngle(JointLeftHip_Pitch, mocap_upleg_euler[0] - glm::radians(offset));
-                SetRawJointAngle(JointLeftHip_Yaw, mocap_upleg_euler[1]);
-                SetRawJointAngle(JointLeftHip_Roll, mocap_upleg_euler[2]);
+                auto mocap_uleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
+                SetRawJointAngle(JointLeftHip_Pitch, mocap_uleg_euler[0] - glm::radians(offset));
+                SetRawJointAngle(JointLeftHip_Yaw, mocap_uleg_euler[1]);
+                SetRawJointAngle(JointLeftHip_Roll, mocap_uleg_euler[2]);
+
+
             }
         }
 
@@ -931,7 +937,7 @@ namespace eba {
                 mocap_upleg_rot = glm::angleAxis(glm::radians(offset), axisOffset) * mocap_upleg_rot;
                 auto mocap_right_upleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
                 SetRawJointAngle(JointRightHip_Yaw, (mocap_right_upleg_euler[0] - glm::radians(offset)));
-                SetRawJointAngle(JointRightHip_Pitch, mocap_right_upleg_euler[1]);
+                SetRawJointAngle(JointRightHip_Pitch,mocap_right_upleg_euler[1]);
                 SetRawJointAngle(JointRightHip_Roll, mocap_right_upleg_euler[2]);
             }
             else if (m_config.hipOrder == EulerOrder{ 2, 0, 1 })
@@ -971,31 +977,68 @@ namespace eba {
                 }
 
                 mocap_upleg_rot = glm::angleAxis(glm::radians(offset), axisOffset) * mocap_upleg_rot;
-                auto mocap_upleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
-                SetRawJointAngle(JointRightHip_Pitch, (mocap_upleg_euler[0] - glm::radians(offset)));
-                SetRawJointAngle(JointRightHip_Yaw, mocap_upleg_euler[1]);
-                SetRawJointAngle(JointRightHip_Roll, mocap_upleg_euler[2]);
+                auto mocap_uleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
+                SetRawJointAngle(JointRightHip_Pitch, mocap_uleg_euler[0] - glm::radians(offset) -temp_angle);
+                SetRawJointAngle(JointRightHip_Yaw, mocap_uleg_euler[1]);
+                SetRawJointAngle(JointRightHip_Roll, mocap_uleg_euler[2] );
+                
+
+                // hips反向补偿pitch角度
+                if (temp_angle != 0.0f) {
+
+                    // 1) 反向补偿 hips 的旋转（绕 pitch 轴）
+                    m_mocapInputRot[JointTag_Hips] = glm::angleAxis(temp_angle*0.7f, axisOffset) * m_mocapInputRot[JointTag_Hips];
+
+                    // 2) 用 hips->leftUpLeg 的向量计算旋转前后差值，并同时补偿 y、z 到 hips 位置
+                    Vector3 hipsPos = m_mocapInputPosWorld[JointTag_Hips];
+                    Vector3 upLegPos = m_mocapInputPosWorld[JointTag_LeftUpLeg];
+                    Vector3 hipsToUpLegBefore = upLegPos - hipsPos;
+                    Vector3 hipsToUpLegAfter = glm::angleAxis(temp_angle, axisOffset) * hipsToUpLegBefore;
+
+                    // 差值（旋转导致的位移变化）
+                    Vector3 d = hipsToUpLegAfter - hipsToUpLegBefore;
+
+                    // 补偿 hips，使旋转后与上腿基点的相对关系在 y、z 两个方向保持一致
+                    m_mocapInputPosWorld[JointTag_Hips].y -= d.y*2;
+                    m_mocapInputPosWorld[JointTag_Hips].z -= d.z*2;
+
+                    // 若需要同时考虑 x（一般绕 pitch 轴不会显著影响 x，但可按需加上）
+                    // m_mocapInputPosWorld[JointTag_Hips].x -= d.x;
+
+                    // 3) 更新根姿态
+                    m_rootPosition = m_mocapInputPosWorld[JointTag_Hips];
+                  
+                    bodyInfo.hips.position.value[0] = m_rootPosition.x;
+                    bodyInfo.hips.position.value[1] = m_rootPosition.y;
+                    bodyInfo.hips.position.value[2] = m_rootPosition.z;
+
+                    m_rootRotation = m_mocapInputRot[JointTag_Hips];
+
             }
             else if (m_config.hipOrder == EulerOrder{ 0, 2, 1 })
             {
                 Matrix3 rotMat = glm::toMat3(mocap_upleg_rot);
                 Vector3 xAxis = rotMat[0];
 
-                float offset = 150.0f;
+                float offset = 150.0;
                 if (xAxis.z >= 0) // 前抬腿
                 {
-                    offset = 150.0f;
+                    offset = 150.0;
                 }
                 else // 后压腿
                 {
-                    offset = 90.0f;
+                    offset = 90.0;
                 }
 
                 mocap_upleg_rot = glm::angleAxis(glm::radians(offset), axisOffset) * mocap_upleg_rot;
-                auto mocap_upleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
-                SetRawJointAngle(JointRightHip_Pitch, (mocap_upleg_euler[0] - glm::radians(offset)));
-                SetRawJointAngle(JointRightHip_Yaw, mocap_upleg_euler[1]);
-                SetRawJointAngle(JointRightHip_Roll, mocap_upleg_euler[2]);
+                auto mocap_uleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
+                SetRawJointAngle(JointRightHip_Pitch, mocap_uleg_euler[0] - glm::radians(offset)- temp_angle);
+                SetRawJointAngle(JointRightHip_Yaw, mocap_uleg_euler[1]);
+                SetRawJointAngle(JointRightHip_Roll, mocap_uleg_euler[2] );
+
+                
+
+                }
             }
             //增加1 0 2结构
             else if (m_config.hipOrder == EulerOrder{ 0, 2, 1 })
@@ -1014,10 +1057,10 @@ namespace eba {
                 }
 
                 mocap_upleg_rot = glm::angleAxis(glm::radians(offset), axisOffset) * mocap_upleg_rot;
-                auto mocap_upleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
-                SetRawJointAngle(JointRightHip_Pitch, (mocap_upleg_euler[0] - glm::radians(offset)));
-                SetRawJointAngle(JointRightHip_Yaw, mocap_upleg_euler[1]);
-                SetRawJointAngle(JointRightHip_Roll, mocap_upleg_euler[2]);
+                auto mocap_uleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
+                SetRawJointAngle(JointRightHip_Pitch, mocap_uleg_euler[0] - glm::radians(offset));
+                SetRawJointAngle(JointRightHip_Yaw, mocap_uleg_euler[1]);
+                SetRawJointAngle(JointRightHip_Roll, mocap_uleg_euler[2] );
             }
         }
 
@@ -1334,8 +1377,8 @@ namespace eba {
             }
             else
             {
-                auto thumb1_2 = thumb1_r ;
-
+                auto thumb1_2 = thumb1_r * thumb2_r;
+               
                 auto thumb1_2_euler = QuatToEuler(thumb1_2, { 0, 2, 1 });
 
                 if (thumb1_2_euler[1]>0)
@@ -1972,7 +2015,7 @@ namespace eba {
         m_mocapInputRotWorld[JointTag_LeftFoot].w = bodyDisp.leftFoot.rotation.value[3];
 
         //本体旋转
-        Quat leftFootOffset= glm::inverse( m_mocapInputRot[JointTag_Hips]*m_mocapInputRot[JointTag_LeftUpLeg] * m_mocapInputRot[JointTag_LeftLeg] );
+        Quat leftFootOffset= glm::inverse( m_mocapInputRot[JointTag_Hips]* m_mocapInputRot[JointTag_LeftUpLeg] * m_mocapInputRot[JointTag_LeftLeg] );
         m_mocapInputRot[JointTag_LeftFoot] = leftFootOffset * m_mocapInputRotWorld[JointTag_LeftFoot] ;
         //本体系坐标通过角度旋转偏移和移动偏移相加
         eba::Vector3 leftFootInfoPos = Vector3(bodyInfo.leftFoot.position.value[0], bodyInfo.leftFoot.position.value[1], bodyInfo.leftFoot.position.value[2]);

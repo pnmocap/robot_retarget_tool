@@ -320,12 +320,12 @@ int setMCPSettings(IMCPSettings* setting, MCPSettingsHandle_t handle) {
       PrintInfo("设置BVH变换类型失败: %s\n", getErrorMsg(error));
   }
 
-  error = setting->SetSettingsUDP(7012, handle);
-  if (error != Error_None) {
-      PrintInfo("设置UDP端口失败: %s\n", getErrorMsg(error));
-  }
+  //error = setting->SetSettingsUDP(7012, handle);
+  //if (error != Error_None) {
+  //    PrintInfo("设置UDP端口失败: %s\n", getErrorMsg(error));
+  //}
 
-  // error = setting->SetSettingsTCP(strServerIP.c_str(), strServerPort, handle);
+   error = setting->SetSettingsTCP(strServerIP.c_str(), strServerPort, handle);
   // error = setting->SetSettingsUDPServer(strServerIP.c_str(), strServerPort, handle);
 
   return 0;
@@ -612,16 +612,16 @@ int main(int argc, char** argv) {
           }
 
           //jointName为此retarget的具体关节节点，可根据需求输入，调用后返回一个角度。
-          char* jointName1 = "R_thumb_MCP_joint1";
-          float value1 = 0;
-          // 获取机器人目标关节角度并检查错误
-          EMCPError angleError = RA_GetRobotRetargetJointAngle(jointName1, &value1, pHandle);
-          if (angleError != Error_None) {
-              PrintInfo("获取关节[%s]角度失败: %s\n", jointName1, getErrorMsg(angleError));
-          }
-          else {
-              PrintInfo("RobotjointName:%s :%f  \n", jointName1, value1 * 57.3f);
-          }
+          //char* jointName1 = "R_thumb_MCP_joint1";
+          //float value1 = 0;
+          //// 获取机器人目标关节角度并检查错误
+          //EMCPError angleError = RA_GetRobotRetargetJointAngle(jointName1, &value1, pHandle);
+          //if (angleError != Error_None) {
+          //    PrintInfo("获取关节[%s]角度失败: %s\n", jointName1, getErrorMsg(angleError));
+          //}
+          //else {
+          //    PrintInfo("RobotjointName:%s :%f  \n", jointName1, value1 * 57.3f);
+          //}
 
           // 获取jsonStr
           bool compress = true;

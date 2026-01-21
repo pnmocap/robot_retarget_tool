@@ -136,7 +136,7 @@ namespace eba
         //计算对应的旋转向量，得到单位旋转向量
         glm::vec3 targetPos =  forward*qua;
         //计算对应YZ屏幕投影
-        float angle = std::atan(targetPos.y / targetPos.z);
+        float angle = atan2(targetPos.y , targetPos.z);
         return angle;
     }
 
@@ -146,7 +146,7 @@ namespace eba
         //计算对应的旋转向量，得到单位旋转向量
         glm::vec3 targetPos = forward * qua;
         //计算对应YZ屏幕投影
-        float angle = std::atan(targetPos.y / targetPos.x);
+        float angle = atan2(targetPos.y , targetPos.x);
         return angle;
     }
 
