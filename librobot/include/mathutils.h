@@ -137,6 +137,7 @@ namespace eba
         glm::vec3 targetPos =  forward*qua;
         //计算对应YZ屏幕投影
         float angle = atan2(targetPos.y , targetPos.z);
+        //float angle = std::atan(targetPos.y/ targetPos.z);
         return angle;
     }
 
@@ -147,6 +148,7 @@ namespace eba
         glm::vec3 targetPos = forward * qua;
         //计算对应YZ屏幕投影
         float angle = atan2(targetPos.y , targetPos.x);
+       // float angle = std::atan(targetPos.y / targetPos.x);
         return angle;
     }
 
@@ -162,6 +164,7 @@ namespace eba
 
         // 计算基础角度（绕Z轴）
         float angle = std::atan2(projection.y, projection.x);
+
         //angle = glm::degrees(angle);
 
         if (projection.x<0)

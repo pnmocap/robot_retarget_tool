@@ -6,7 +6,9 @@
 #include <algorithm>
 #include <MocapApi.h>
 #include <thread>
+#ifdef _WIN32
 #include <windows.h>
+#endif
 #include "robot_api.h"
 
 

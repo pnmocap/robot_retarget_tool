@@ -1227,7 +1227,7 @@ namespace eba {
             //代表是第一关节点的右方向
             glm::vec3 left = glm::vec3(-1.0f, 0.0f, 0.0f);
             float angle0 = angleBetween(left, targetPosByJ1XZ);
-
+            float templ = 0;
             //20250409针对不同机械手，拆分方式不一样。（因时，奥义使用0，哈工大使用1）
             if (m_config.handMode==0)
             {
@@ -1241,6 +1241,7 @@ namespace eba {
                     thumb1_1_euler[0] =   thumb1_1_euler[0]-3.14;
                 }
                 SetRawJointAngle(JointLeftThumb1_1, thumb1_1_euler[0] );
+                templ = thumb1_1_euler[0];
             }
 
             if (m_config.handMode == 0)
@@ -1260,10 +1261,11 @@ namespace eba {
                     thumb1_2_euler[1] = 3.14 - thumb1_2_euler[1];
                 }
                 SetRawJointAngle(JointLeftThumb1_2, thumb1_2_euler[1]);
+                SetRawJointAngle(JointLeftThumb1_2, thumb1_2_euler[1]+ templ);
             }
             //20250219
            
-
+          
 
 
         }

@@ -7,11 +7,18 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # MocapApi import target
 add_library(MocapApi::MocapApi SHARED IMPORTED)
-set_target_properties(MocapApi::MocapApi PROPERTIES
-    IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/lib/MocapApi.dll"
-    IMPORTED_IMPLIB "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/lib/MocapApi.lib"
-    INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/include"
-)
+if (WIN32)
+    set_target_properties(MocapApi::MocapApi PROPERTIES
+        IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/lib/MocapApi.dll"
+        IMPORTED_IMPLIB "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/lib/MocapApi.lib"
+        INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/include"
+    )
+else()
+    set_target_properties(MocapApi::MocapApi PROPERTIES
+        IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/lib/MocapApi.so"
+        INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/include"
+    )
+endif()
 
 add_executable(robot_api_demo2
     robot_api_demo2.cpp
@@ -22,13 +29,13 @@ target_include_directories(robot_api_demo2 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/include
 )
 
-# Link to the DLL target so the demo uses the generated import library (robot_api.lib)
 target_link_libraries(robot_api_demo2
     PRIVATE
         robot_api_shared
         MocapApi::MocapApi
 )
 
+if (WIN32)
 add_custom_command(TARGET robot_api_demo2 POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/lib/MocapApi.dll"
@@ -37,6 +44,7 @@ add_custom_command(TARGET robot_api_demo2 POST_BUILD
         $<TARGET_FILE:robot_api_shared>
         $<TARGET_FILE_DIR:robot_api_demo2>
 )
+endif()
 
 add_subdirectory(librobot)
 
@@ -69,11 +77,13 @@ set_target_properties(robot_api_shared PROPERTIES
     OUTPUT_NAME "robot_api"
 )
 
+if (WIN32)
 add_custom_command(TARGET robot_api_shared POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/lib/MocapApi.dll"
         $<TARGET_FILE_DIR:robot_api_shared>
 )
+endif()
 
 add_executable(robot_api_demo
     robot_api_demo.cpp
@@ -89,6 +99,7 @@ target_link_libraries(robot_api_demo
         MocapApi::MocapApi
 )
 
+if (WIN32)
 add_custom_command(TARGET robot_api_demo POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/lib/MocapApi.dll"
@@ -97,6 +108,7 @@ add_custom_command(TARGET robot_api_demo POST_BUILD
         $<TARGET_FILE:robot_api_shared>
         $<TARGET_FILE_DIR:robot_api_demo>
 )
+endif()
 
 add_executable(robot_api_demo3
     robot_api_demo3.cpp
@@ -115,6 +127,7 @@ target_link_libraries(robot_api_demo3
         MocapApi::MocapApi
 )
 
+if (WIN32)
 add_custom_command(TARGET robot_api_demo3 POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/lib/MocapApi.dll"
@@ -123,3 +136,4 @@ add_custom_command(TARGET robot_api_demo3 POST_BUILD
         $<TARGET_FILE:robot_api_shared>
         $<TARGET_FILE_DIR:robot_api_demo3>
 )
+endif()
