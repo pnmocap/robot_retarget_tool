@@ -978,16 +978,16 @@ namespace eba {
 
                 mocap_upleg_rot = glm::angleAxis(glm::radians(offset), axisOffset) * mocap_upleg_rot;
                 auto mocap_uleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder);
-                SetRawJointAngle(JointRightHip_Pitch, mocap_uleg_euler[0] - glm::radians(offset) -temp_angle);
+                SetRawJointAngle(JointRightHip_Pitch, mocap_uleg_euler[0] - glm::radians(offset) - temp_angle);
                 SetRawJointAngle(JointRightHip_Yaw, mocap_uleg_euler[1]);
-                SetRawJointAngle(JointRightHip_Roll, mocap_uleg_euler[2] );
-                
+                SetRawJointAngle(JointRightHip_Roll, mocap_uleg_euler[2]);
+
 
                 // hips反向补偿pitch角度
-                if (temp_angle != 0.0f) {
+                if (temp_angle >15) {
 
                     // 1) 反向补偿 hips 的旋转（绕 pitch 轴）
-                    m_mocapInputRot[JointTag_Hips] = glm::angleAxis(temp_angle*0.7f, axisOffset) * m_mocapInputRot[JointTag_Hips];
+                    m_mocapInputRot[JointTag_Hips] = glm::angleAxis(temp_angle * 0.7f, axisOffset) * m_mocapInputRot[JointTag_Hips];
 
                     // 2) 用 hips->leftUpLeg 的向量计算旋转前后差值，并同时补偿 y、z 到 hips 位置
                     Vector3 hipsPos = m_mocapInputPosWorld[JointTag_Hips];
@@ -999,21 +999,23 @@ namespace eba {
                     Vector3 d = hipsToUpLegAfter - hipsToUpLegBefore;
 
                     // 补偿 hips，使旋转后与上腿基点的相对关系在 y、z 两个方向保持一致
-                    m_mocapInputPosWorld[JointTag_Hips].y -= d.y*2;
-                    m_mocapInputPosWorld[JointTag_Hips].z -= d.z*2;
+                   // m_mocapInputPosWorld[JointTag_Hips].y -= d.y * 2;
+                    m_mocapInputPosWorld[JointTag_Hips].z -= d.z * 2;
 
                     // 若需要同时考虑 x（一般绕 pitch 轴不会显著影响 x，但可按需加上）
                     // m_mocapInputPosWorld[JointTag_Hips].x -= d.x;
 
+
                     // 3) 更新根姿态
                     m_rootPosition = m_mocapInputPosWorld[JointTag_Hips];
-                  
+
                     bodyInfo.hips.position.value[0] = m_rootPosition.x;
                     bodyInfo.hips.position.value[1] = m_rootPosition.y;
                     bodyInfo.hips.position.value[2] = m_rootPosition.z;
 
                     m_rootRotation = m_mocapInputRot[JointTag_Hips];
 
+                }
             }
             else if (m_config.hipOrder == EulerOrder{ 0, 2, 1 })
             {
@@ -1038,8 +1040,7 @@ namespace eba {
 
                 
 
-                }
-            }
+                } 
             //增加1 0 2结构
             else if (m_config.hipOrder == EulerOrder{ 0, 2, 1 })
             {
@@ -1895,6 +1896,7 @@ namespace eba {
         //机器人最终髋高， 真人髋高*（机器人髋部长度+机器人大腿长+机器人小腿长）/（真人髋长+真人大腿长+真人小腿长）
 
          //在此处调整机器人大小
+
         bodyInfo.hips.position.value[0] = m_mocapInputPosWorld[JointTag_Hips].x;
         bodyInfo.hips.position.value[1] = m_mocapInputPosWorld[JointTag_Hips].y;
         bodyInfo.hips.position.value[2] = m_mocapInputPosWorld[JointTag_Hips].z;

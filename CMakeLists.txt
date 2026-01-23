@@ -5,6 +5,14 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(arm|aarch64)")
+  set(BOARD_TYPE "arm")
+  message(STATUS "Current System : ${B}ARM${E}")
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64)")
+  set(BOARD_TYPE "x86")
+  message(STATUS "Current System : ${B}X86${E}")
+endif()
+
 # MocapApi import target
 add_library(MocapApi::MocapApi SHARED IMPORTED)
 if (WIN32)
@@ -14,10 +22,18 @@ if (WIN32)
         INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/include"
     )
 else()
-    set_target_properties(MocapApi::MocapApi PROPERTIES
-        IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/lib/MocapApi.so"
-        INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/include"
-    )
+    if(${BOARD_TYPE} STREQUAL "arm")
+        set_target_properties(MocapApi::MocapApi PROPERTIES
+            IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/lib/linux/aarch64/libMocapApi.so"
+            INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/include"
+        )
+    else()
+        set_target_properties(MocapApi::MocapApi PROPERTIES
+            IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/lib/linux/x64/libMocapApi.so"
+            INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/third_party/MocapApi/include"
+        )
+    endif()
+    
 endif()
 
 add_executable(robot_api_demo2
