@@ -377,6 +377,7 @@ namespace eba
         float m_slideSpeed = 0;
         float m_standHeight = 0;
         float m_slideHeight = 0;
+        float m_rootZOffset = 0.15f;
     };
 
 }

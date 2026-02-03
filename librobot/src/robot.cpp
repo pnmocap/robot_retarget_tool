@@ -424,6 +424,15 @@ namespace eba {
             if (m_enableScale)
             {
                 SetUpdateWithDisp();
+
+                // Apply a post-adjustment on root/world hips so the visual height actually changes
+                // when scale mode is enabled. Units are meters.
+                if (m_rootZOffset != 0.0f)
+                {
+                    m_rootPosition.z += m_rootZOffset;
+                    m_mocapInputPosWorld[JointTag_Hips].z = m_rootPosition.z;
+                    m_mocapInputPos[JointTag_Hips].z = m_rootPosition.z;
+                }
             }
         }
 
@@ -683,10 +692,10 @@ namespace eba {
                 }
 
                 mocap_upleg_rot = glm::angleAxis(glm::radians(offset), axisOffset) * mocap_upleg_rot; // 哪个轴开始有跳变，就转个90规避
-                auto mocap_upleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder); // 根据机械结构确定轴序
-                SetRawJointAngle(JointLeftHip_Yaw, mocap_upleg_euler[0] - glm::radians(offset)); // 相应的折算回偏移
-                SetRawJointAngle(JointLeftHip_Pitch, mocap_upleg_euler[1]);
-                SetRawJointAngle(JointLeftHip_Roll, mocap_upleg_euler[2]);
+                auto mocap_uleg_euler = QuatToEuler(mocap_upleg_rot, m_config.hipOrder); // 根据机械结构确定轴序
+                SetRawJointAngle(JointLeftHip_Yaw, mocap_uleg_euler[0] - glm::radians(offset)); // 相应的折算回偏移
+                SetRawJointAngle(JointLeftHip_Pitch, mocap_uleg_euler[1]);
+                SetRawJointAngle(JointLeftHip_Roll, mocap_uleg_euler[2]);
             }
             else if (m_config.hipOrder == EulerOrder{ 2, 0, 1 })
             {
@@ -868,7 +877,6 @@ namespace eba {
                 float j3;
                 GetRawJointAngleInternal(JointLeftShoulder_Yaw, &j3);
                 SetRawJointAngle(JointLeftShoulder_Yaw, Clamp180(0 + j3 - glm::radians(90.0)));
-                //  SetRawJointAngle(JointLeftElbow, 0);
 
                 SetRawJointAngle(JointLeftWrist_Yaw, 0);
             }
@@ -982,16 +990,18 @@ namespace eba {
                 SetRawJointAngle(JointRightHip_Yaw, mocap_uleg_euler[1]);
                 SetRawJointAngle(JointRightHip_Roll, mocap_uleg_euler[2]);
 
+                // NOTE: When m_enableScale==true, root/world hips are produced by SetUpdateWithDisp() earlier in Step().
+                // Changing local hips position here won't affect the final displayed root height.
 
                 // hips反向补偿pitch角度
-                if (temp_angle >15) {
+                if (temp_angle >1) {
 
                     // 1) 反向补偿 hips 的旋转（绕 pitch 轴）
-                    m_mocapInputRot[JointTag_Hips] = glm::angleAxis(temp_angle * 0.7f, axisOffset) * m_mocapInputRot[JointTag_Hips];
+                    m_mocapInputRot[JointTag_Hips] = glm::angleAxis(temp_angle , axisOffset) * m_mocapInputRot[JointTag_Hips];
 
                     // 2) 用 hips->leftUpLeg 的向量计算旋转前后差值，并同时补偿 y、z 到 hips 位置
-                    Vector3 hipsPos = m_mocapInputPosWorld[JointTag_Hips];
-                    Vector3 upLegPos = m_mocapInputPosWorld[JointTag_LeftUpLeg];
+                    Vector3 hipsPos = m_mocapInputPos[JointTag_Hips];
+                    Vector3 upLegPos = m_mocapInputPos[JointTag_LeftUpLeg];
                     Vector3 hipsToUpLegBefore = upLegPos - hipsPos;
                     Vector3 hipsToUpLegAfter = glm::angleAxis(temp_angle, axisOffset) * hipsToUpLegBefore;
 
@@ -1000,14 +1010,10 @@ namespace eba {
 
                     // 补偿 hips，使旋转后与上腿基点的相对关系在 y、z 两个方向保持一致
                    // m_mocapInputPosWorld[JointTag_Hips].y -= d.y * 2;
-                    m_mocapInputPosWorld[JointTag_Hips].z -= d.z * 2;
-
-                    // 若需要同时考虑 x（一般绕 pitch 轴不会显著影响 x，但可按需加上）
-                    // m_mocapInputPosWorld[JointTag_Hips].x -= d.x;
-
+                   // m_mocapInputPosWorld[JointTag_Hips].z -= d.z * 2;
 
                     // 3) 更新根姿态
-                    m_rootPosition = m_mocapInputPosWorld[JointTag_Hips];
+                    m_rootPosition = m_mocapInputPos[JointTag_Hips];
 
                     bodyInfo.hips.position.value[0] = m_rootPosition.x;
                     bodyInfo.hips.position.value[1] = m_rootPosition.y;
@@ -1037,10 +1043,7 @@ namespace eba {
                 SetRawJointAngle(JointRightHip_Pitch, mocap_uleg_euler[0] - glm::radians(offset)- temp_angle);
                 SetRawJointAngle(JointRightHip_Yaw, mocap_uleg_euler[1]);
                 SetRawJointAngle(JointRightHip_Roll, mocap_uleg_euler[2] );
-
-                
-
-                } 
+            }
             //增加1 0 2结构
             else if (m_config.hipOrder == EulerOrder{ 0, 2, 1 })
             {

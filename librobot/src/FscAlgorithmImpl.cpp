@@ -84,7 +84,7 @@ namespace eba
         leftFootOffsetDir = Vector3(1, 0, 0);
         rightFootOffsetDir = Vector3(1, 0, 0);
         leftKneeOffsetDir = Vector3(1, 0, 0);
-        leftKneeOffsetDir = Vector3(1, 0, 0);
+        rightKneeOffsetDir = Vector3(1, 0, 0);
 
 	}
 

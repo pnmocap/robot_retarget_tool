@@ -630,7 +630,7 @@ int main(int argc, char** argv) {
           const char* result;
           EMCPError robotStatus = RA_GetRobotRosFrameJson(&result, compress, pHandle);
           if (robotStatus == Error_None) {
-             // PrintInfo("jsonStr: %s  \n", result);
+             PrintInfo("jsonStr: %s  \n", result);
           }
           else {
               PrintInfo("获取机器人ROS帧JSON失败: %s\n", getErrorMsg(robotStatus));
