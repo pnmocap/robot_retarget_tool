@@ -50,17 +50,26 @@ namespace eba
         //方向默认x为前
          Vector modelForward = { {1,0,0} };
          Vector modelLeft = { {0,-1,0} };
-        //数据源参数暂时写死
-         sourceHipsWidth = 0.15f;
-         sourceHipsHeight = 0.0f;
-         sourceLegLength = 0.45f;
-         sourceAnkleHeight = 0.42f;
 
-         //机器人参数
-         targetHipsWidth = robotHipsWidth;
-         targetHipsHeight = robotHipsHeight;
-         targetLegLength = robotLegLength;
-         targetAnkleHeight = robotAnkleHeight;
+         // 数据源（人体）参数：用于计算scale
+         sourceHipsWidth = 0.23f;
+         sourceHipsHeight = 0.0f;
+         sourceLegLength = 0.858f;
+         sourceAnkleHeight = 0.08f;
+
+         // 机器人参数：优先使用外部传入（config），否则回落到URDF推导的默认值
+         // Ultron_EVT_S11_V2 (from provided URDF):
+         // hip lateral offset: +/-0.105 -> hipsWidth ~= 0.21
+         // hip->knee: 0.369, knee->ankle: 0.369 -> legLength ~= 0.738
+         // ankle->foot contact: 0.05
+         constexpr float kUrdfHipsWidth = 0.21f;
+         constexpr float kUrdfLegLength = 0.369f + 0.369f;
+         constexpr float kUrdfAnkleHeight = 0.05f;
+
+         targetHipsWidth = (robotHipsWidth > 1e-6f) ? robotHipsWidth : kUrdfHipsWidth;
+         targetHipsHeight = (robotHipsHeight > 1e-6f) ? robotHipsHeight : 0.0f;
+         targetLegLength = (robotLegLength > 1e-6f) ? robotLegLength : kUrdfLegLength;
+         targetAnkleHeight = (robotAnkleHeight > 1e-6f) ? robotAnkleHeight : kUrdfAnkleHeight;
 
 
 		hips = CreateBone(0, "Hips", "", initPose.hips);
@@ -83,16 +92,25 @@ namespace eba
 
         leftFootOffsetDir = Vector3(1, 0, 0);
         rightFootOffsetDir = Vector3(1, 0, 0);
+
+        // IK knee pole: use hips forward axis instead of a fixed world axis.
+        // This is more stable when the pelvis yaws while walking.
         leftKneeOffsetDir = Vector3(1, 0, 0);
         rightKneeOffsetDir = Vector3(1, 0, 0);
-
 	}
 
     void FscAlgorithmImpl::UpdateWithDisp(int frame, const FscLowerBodyInfo& input, FscLowerBodyInfo& output)
     {
+        Vector3 inputHipsPos = ConvertVec(input.hips.position);
+        Quat inputHipsRot = ConvertQuat(input.hips.rotation);
 
-		Vector3 inputHipsPos = ConvertVec(input.hips.position);
-		Quat inputHipsRot = ConvertQuat(input.hips.rotation);
+        Vector3 inputLeftUpLegPos = ConvertVec(input.leftUpLeg.position);
+        Vector3 inputLeftLegPos = ConvertVec(input.leftLeg.position);
+        Vector3 inputLeftFootPos = ConvertVec(input.leftFoot.position);
+
+        Vector3 inputRightUpLegPos = ConvertVec(input.rightUpLeg.position);
+        Vector3 inputRightLegPos = ConvertVec(input.rightLeg.position);
+        Vector3 inputRightFootPos = ConvertVec(input.rightFoot.position);
 
         Quat inputLeftUpLegRot = ConvertQuat(input.leftUpLeg.rotation);
         Quat inputLeftLegRot = ConvertQuat(input.leftLeg.rotation);
@@ -101,125 +119,187 @@ namespace eba
         Quat inputRightLegRot = ConvertQuat(input.rightLeg.rotation);
         Quat inputRightFootRot = ConvertQuat(input.rightFoot.rotation);
 
-		// do hip adjustment
-        //获取身体尺寸，//机器人最终髋高， 真人髋高*（机器人髋部长度+机器人大腿长+机器人小腿长）/（真人髋长+真人大腿长+真人小腿长）
-        float scale = (targetHipsHeight+targetLegLength + targetAnkleHeight) / (sourceHipsHeight+sourceLegLength + sourceAnkleHeight);
-        //设置hips的位置和姿态
+        // do hip adjustment
+        float scale = (targetHipsHeight + targetLegLength + targetAnkleHeight) /
+            (sourceHipsHeight + sourceLegLength + sourceAnkleHeight);
+
         hips->SetPositionAndRotation((inputHipsPos * scale), inputHipsRot);
 
-
-		// do forward animation without displacement
+        // Update forward animation (positions + rotations) in WORLD space.
+        // Important: TwoBonesIK relies on correct world-space positions to compute bone lengths.
+        leftUpLeg->SetPosition(inputLeftUpLegPos * scale);
         leftUpLeg->SetRotation(inputLeftUpLegRot);
+
+        leftLeg->SetPosition(inputLeftLegPos * scale);
+        leftLeg->SetRotation(inputLeftLegRot);
+
+        leftFoot->SetPosition(inputLeftFootPos * scale);
+        leftFoot->SetRotation(inputLeftFootRot);
+
+        rightUpLeg->SetPosition(inputRightUpLegPos * scale);
         rightUpLeg->SetRotation(inputRightUpLegRot);
 
-        leftLeg->SetRotation(inputLeftLegRot);
+        rightLeg->SetPosition(inputRightLegPos * scale);
         rightLeg->SetRotation(inputRightLegRot);
 
+        rightFoot->SetPosition(inputRightFootPos * scale);
+        rightFoot->SetRotation(inputRightFootRot);
+
         // do foot adjustment
-        Vector3 inputLeftFootPos = ConvertVec(input.leftFoot.position);
-        Vector3 inputRightFootPos = ConvertVec(input.rightFoot.position);
+        // Use hips lateral axis for width compensation. Using foot orientation can introduce outward swing
+        // during leg lift because foot yaw/roll changes the compensation direction.
+        Vector3 hipsSide = hips->GetDirY();
+        hipsSide.z = 0.0f;
+        if (glm::length2(hipsSide) < 1e-6f)
+        {
+            hipsSide = Vector3(0, 1, 0);
+        }
+        hipsSide = glm::normalize(hipsSide);
 
-        Vector3 leftFootSideOffset = rotate(inputLeftFootRot, leftFootOffsetDir);
-        Vector3 rightFootSideOffset = rotate(inputRightFootRot, rightFootOffsetDir);
+        // Left and right use opposite lateral directions.
+        Vector3 leftFootSideOffset = hipsSide;
+        Vector3 rightFootSideOffset = hipsSide;
 
-		float vertOffset = ( sourceAnkleHeight- targetAnkleHeight * scale);
-		float hipsWidthDelta = 0.5f * ( sourceHipsWidth -targetHipsWidth * scale);
-        Vector3 leftFootAdjustPos = inputLeftFootPos * scale + Vector3(0,0 ,vertOffset) + leftFootSideOffset * hipsWidthDelta;
-		Vector3 rightFootAdjustPos = inputRightFootPos * scale + Vector3(0,0,vertOffset) - rightFootSideOffset * hipsWidthDelta;
+         float vertOffset = (sourceAnkleHeight - targetAnkleHeight * scale);
+         float hipsWidthDelta = 0.5f * (sourceHipsWidth - targetHipsWidth * scale);
+         hipsWidthDelta = glm::clamp(hipsWidthDelta, -m_maxHipsWidthComp, m_maxHipsWidthComp);
 
-		// output
-        //hips 只根据身体尺寸调整了下高度，
+         Vector3 leftFootAdjustPos = inputLeftFootPos * scale + Vector3(0, 0, vertOffset) + leftFootSideOffset * hipsWidthDelta;
+         Vector3 rightFootAdjustPos = inputRightFootPos * scale + Vector3(0, 0, vertOffset) - rightFootSideOffset * hipsWidthDelta;
+
+    // --- Foot lock (simple plant) ---
+    // Estimate foot speed from input positions. frame is provided by caller, assume fixed fps=60.
+    // This is a lightweight stabilizer to reduce sliding when a foot is on the ground.
+    const float dt = 1.0f / 60.0f;
+    if (m_initedFrame == 0)
+    {
+        m_lastLeftFootInputPos = inputLeftFootPos;
+        m_lastRightFootInputPos = inputRightFootPos;
+        m_leftFootLocked = false;
+        m_rightFootLocked = false;
+        m_initedFrame = 1;
+    }
+
+    Vector3 leftVel = (inputLeftFootPos - m_lastLeftFootInputPos) / dt;
+    Vector3 rightVel = (inputRightFootPos - m_lastRightFootInputPos) / dt;
+    m_lastLeftFootInputPos = inputLeftFootPos;
+    m_lastRightFootInputPos = inputRightFootPos;
+
+    float leftSpeed = glm::length(leftVel);
+    float rightSpeed = glm::length(rightVel);
+
+    // Use scaled height for contact check; threshold is in scaled space.
+    float leftHeight = leftFootAdjustPos.z;
+    float rightHeight = rightFootAdjustPos.z;
+
+    auto updateLock = [&](bool& locked, Vector3& lockPos, float speed, float height, const Vector3& currentAdjustPos)
+    {
+        if (!locked)
+        {
+            if (speed < m_footLockVelEnter && height < m_footLockHeightThreshold)
+            {
+                locked = true;
+                lockPos = currentAdjustPos;
+            }
+        }
+        else
+        {
+            if (speed > m_footLockVelExit || height > m_footLockHeightThreshold)
+            {
+                locked = false;
+            }
+        }
+
+        return locked ? lockPos : currentAdjustPos;
+    };
+
+    leftFootAdjustPos = updateLock(m_leftFootLocked, m_leftFootLockPos, leftSpeed, leftHeight, leftFootAdjustPos);
+    rightFootAdjustPos = updateLock(m_rightFootLocked, m_rightFootLockPos, rightSpeed, rightHeight, rightFootAdjustPos);
+
+        // hips output
         output.hips.position = ConvertVec(hips->GetPosition());
         output.hips.rotation = ConvertQuat(hips->GetRotation());
 
-		
-#if 1 // no ik
-        const Vector3& leftKneePos = leftLeg->GetPosition();
-        const Vector3& rightKneePos = rightLeg->GetPosition();
-
-        Vector3 leftLegOrigDir = normalize(leftFoot->GetPosition() - leftKneePos);
-        Vector3 rightLegOrigDir = normalize(rightFoot->GetPosition() - rightKneePos);
-
-        Vector3 leftLegDir = normalize(leftFootAdjustPos - leftKneePos);
-        Vector3 rightLegDir = normalize(rightFootAdjustPos - rightKneePos);
-
-        Quat leftLegDeltaQ = glm::rotation(leftLegOrigDir, leftLegDir);
-        Quat rightLegDeltaQ = glm::rotation(rightLegOrigDir, rightLegDir);
-
-        leftLeg->SetRotation(leftLegDeltaQ * inputLeftLegRot);
-        rightLeg->SetRotation(rightLegDeltaQ * inputRightLegRot);
-
-        leftFoot->SetPosition(leftFootAdjustPos);
-        rightFoot->SetPosition(rightFootAdjustPos);
-        leftFoot->SetRotation(inputLeftFootRot);
-        rightFoot->SetRotation(inputRightFootRot);
-
-        output.leftUpLeg.rotation = ConvertQuat(leftUpLeg->GetRotation());
-        output.rightUpLeg.rotation = ConvertQuat(rightUpLeg->GetRotation());
-        output.leftLeg.position = ConvertVec(leftLeg->GetPosition());
-		output.leftLeg.rotation = ConvertQuat(leftLeg->GetRotation());
-        output.rightLeg.position = ConvertVec(rightLeg->GetPosition());
-		output.rightLeg.rotation = ConvertQuat(rightLeg->GetRotation());
+#if 0 // no ik
+        // ...existing code...
 #else
+    // do leg ik (world-space)
+    IkTransform leftUpLegTrans;
+    leftUpLegTrans.position = leftUpLeg->GetPosition();
+    leftUpLegTrans.rotation = leftUpLeg->GetRotation();
 
-        // do leg ik
-        IkTransform leftUpLegTrans;
-        leftUpLegTrans.position = leftUpLeg->GetPosition();
-        leftUpLegTrans.rotation = leftUpLeg->GetRotation();
+    IkTransform leftLegTrans;
+    leftLegTrans.position = leftLeg->GetPosition();
+    leftLegTrans.rotation = leftLeg->GetRotation();
 
-        IkTransform leftLegTrans;
-        leftLegTrans.position = leftLeg->GetPosition();
-        leftLegTrans.rotation = leftLeg->GetRotation();
+    IkTransform leftFootTrans;
+    leftFootTrans.position = leftFoot->GetPosition();
+    leftFootTrans.rotation = leftFoot->GetRotation();
 
-        IkTransform leftFootTrans;
-        leftFootTrans.position = leftFoot->GetPosition();
-        leftFootTrans.rotation = leftFoot->GetRotation();
+    Vector3 leftKneeOffset = rotate(leftLegTrans.rotation, leftKneeOffsetDir);
+    // Use pelvis-forward projected onto ground as a stable pole direction for walking.
+    Vector3 pelvisFwd = hips->GetDirX();
+    pelvisFwd.z = 0.0f;
+    if (glm::length2(pelvisFwd) < 1e-6f)
+        pelvisFwd = Vector3(1, 0, 0);
+    pelvisFwd = glm::normalize(pelvisFwd);
+    Vector3 leftKneeEffector = leftLegTrans.position + pelvisFwd * m_kneePoleDist;
 
-        Vector3 leftKneeOffset = rotate(leftLeg->GetRotation(), leftKneeOffsetDir);
-        Vector3 leftKneeEffector = leftLeg->GetPosition() + leftKneeOffset * 0.2f;
-//         Vector3 leftFootForward = leftLeg->GetForward();
-//         leftFootForward.setY(0);
-//         leftFootForward = normalize(leftFootForward);
-//         leftFootAdjustPos -= leftFootForward * 0.23f;
+    // Keep stretching disabled for stability with scaled data.
+    TwoBonesIK(leftUpLegTrans, leftLegTrans, leftFootTrans, leftKneeEffector, leftFootAdjustPos,
+        false, 0.995f, 1.1f);
 
-        //将大腿、小腿和脚，通过ik进行调整
-        TwoBonesIK(leftUpLegTrans, leftLegTrans, leftFootTrans, leftKneeEffector, leftFootAdjustPos, true, 0.995f, 1.1f);
+    IkTransform rightUpLegTrans;
+    rightUpLegTrans.position = rightUpLeg->GetPosition();
+    rightUpLegTrans.rotation = rightUpLeg->GetRotation();
 
-        IkTransform rightUpLegTrans;
-        rightUpLegTrans.position = rightUpLeg->GetPosition();
-        rightUpLegTrans.rotation = rightUpLeg->GetRotation();
+    IkTransform rightLegTrans;
+    rightLegTrans.position = rightLeg->GetPosition();
+    rightLegTrans.rotation = rightLeg->GetRotation();
 
-        IkTransform rightLegTrans;
-        rightLegTrans.position = rightLeg->GetPosition();
-        rightLegTrans.rotation = rightLeg->GetRotation();
+    IkTransform rightFootTrans;
+    rightFootTrans.position = rightFoot->GetPosition();
+    rightFootTrans.rotation = rightFoot->GetRotation();
 
-        IkTransform rightFootTrans;
-        rightFootTrans.position = rightFoot->GetPosition();
-        rightFootTrans.rotation = rightFoot->GetRotation();
+    Vector3 rightKneeOffset = rotate(rightLegTrans.rotation, rightKneeOffsetDir);
+    Vector3 rightKneeEffector = rightLegTrans.position + pelvisFwd * m_kneePoleDist;
 
-        Vector3 rightKneeOffset = rotate(rightLeg->GetRotation(), rightKneeOffsetDir);
-        Vector3 rightKneeEffector = rightLeg->GetPosition() + rightKneeOffset * 0.2f;
+    TwoBonesIK(rightUpLegTrans, rightLegTrans, rightFootTrans, rightKneeEffector, rightFootAdjustPos,
+        false, 0.995f, 1.1f);
 
-//         Vector3 rightFootForward = rightLeg->GetForward();
-//         rightFootForward.setY(0);
-//         rightFootForward = normalize(rightFootForward);
-//         rightFootAdjustPos -= rightFootForward * 0.23f;
+    // Write back solved transforms to nodes so subsequent getters reflect IK results.
+    leftUpLeg->SetPosition(leftUpLegTrans.position);
+    leftUpLeg->SetRotation(leftUpLegTrans.rotation);
+    leftLeg->SetPosition(leftLegTrans.position);
+    leftLeg->SetRotation(leftLegTrans.rotation);
+    leftFoot->SetPosition(leftFootTrans.position);
+    leftFoot->SetRotation(inputLeftFootRot);
 
-        TwoBonesIK(rightUpLegTrans, rightLegTrans, rightFootTrans, rightKneeEffector, rightFootAdjustPos, true, 0.995f, 1.1f);
+    rightUpLeg->SetPosition(rightUpLegTrans.position);
+    rightUpLeg->SetRotation(rightUpLegTrans.rotation);
+    rightLeg->SetPosition(rightLegTrans.position);
+    rightLeg->SetRotation(rightLegTrans.rotation);
+    rightFoot->SetPosition(rightFootTrans.position);
+    rightFoot->SetRotation(inputRightFootRot);
 
-        output.leftUpLeg.rotation = ConvertQuat(leftUpLegTrans.rotation);
-        output.rightUpLeg.rotation = ConvertQuat(rightUpLegTrans.rotation);
-        output.rightLeg.position = ConvertVec(rightLegTrans.position);
-        output.rightLeg.rotation = ConvertQuat(rightLegTrans.rotation);
-        output.leftLeg.position = ConvertVec(leftLegTrans.position);
-        output.leftLeg.rotation = ConvertQuat(leftLegTrans.rotation);
+    output.leftUpLeg.position = ConvertVec(leftUpLeg->GetPosition());
+    output.leftUpLeg.rotation = ConvertQuat(leftUpLeg->GetRotation());
+
+    output.leftLeg.position = ConvertVec(leftLeg->GetPosition());
+    output.leftLeg.rotation = ConvertQuat(leftLeg->GetRotation());
+
+    output.rightUpLeg.position = ConvertVec(rightUpLeg->GetPosition());
+    output.rightUpLeg.rotation = ConvertQuat(rightUpLeg->GetRotation());
+
+    output.rightLeg.position = ConvertVec(rightLeg->GetPosition());
+    output.rightLeg.rotation = ConvertQuat(rightLeg->GetRotation());
 #endif
 
-        output.leftFoot.position = ConvertVec(leftFootAdjustPos);
-        output.leftFoot.rotation = ConvertQuat(leftFoot->GetRotation());
-        output.rightFoot.position = ConvertVec(rightFootAdjustPos);
-        output.rightFoot.rotation = ConvertQuat(rightFoot->GetRotation());
-    }
+    output.leftFoot.position = ConvertVec(leftFootAdjustPos);
+    output.leftFoot.rotation = ConvertQuat(inputLeftFootRot);
+    output.rightFoot.position = ConvertVec(rightFootAdjustPos);
+    output.rightFoot.rotation = ConvertQuat(inputRightFootRot);
+}
 
      Quat FscAlgorithmImpl::fromVectors(const glm::vec3& from, const glm::vec3& to) {
         // 计算两个向量的点积
@@ -266,20 +346,22 @@ namespace eba
 
 	JointNode* FscAlgorithmImpl::CreateBone(int index, const std::string& name, const std::string& parentName, const FscBoneInfo& boneInfo)
 	{
-		JointNode* bone = new JointNode();
+	    JointNode* bone = new JointNode();
 
-		bone->SetPosition(ConvertVec(boneInfo.position));
-		bone->SetRotation(ConvertQuat(boneInfo.rotation));
+	    bone->SetPosition(ConvertVec(boneInfo.position));
+	    bone->SetRotation(ConvertQuat(boneInfo.rotation));
 
-		if (parentName != "")
-		{
-			JointNode* parentBone = boneMap[parentName];
-			bone->SetParent(parentBone);
-		}
+	    // Register first, so children can find parent in the same Init() call order.
+	    boneMap[name] = bone;
 
-	//	boneMap.insert({ name, bone });
-	//	bone->SaveCurrentPose();
-		return bone;
+	    if (!parentName.empty())
+	    {
+	        auto it = boneMap.find(parentName);
+	        JointNode* parentBone = (it != boneMap.end()) ? it->second : nullptr;
+	        bone->SetParent(parentBone);
+	    }
+
+	    return bone;
 	}
 
 }

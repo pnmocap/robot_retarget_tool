@@ -29,6 +29,10 @@ int logOffset = 0;
 // 全局错误码
 EMCPError error = EMCPError::Error_None;
 
+// RobotRoot print timestamp helper
+static std::chrono::steady_clock::time_point g_lastRobotRootPrintTime;
+static bool g_hasLastRobotRootPrintTime = false;
+
 #define PrintInfo(format, ...)                                           \
   if (bPrint2Buffer) {                                                   \
     logQuit();                                                           \
@@ -553,7 +557,7 @@ int main(int argc, char** argv) {
   }
 
   bool isListening = true;
-  std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  std::this_thread::sleep_for(std::chrono::milliseconds(60));
   while (isListening) 
   {
 
@@ -609,6 +613,17 @@ int main(int argc, char** argv) {
           }
           else
           {
+              const auto now = std::chrono::steady_clock::now();
+              double dtMs = 0.0;
+              if (g_hasLastRobotRootPrintTime)
+              {
+                  dtMs = std::chrono::duration<double, std::milli>(now - g_lastRobotRootPrintTime).count();
+              }
+              g_lastRobotRootPrintTime = now;
+              g_hasLastRobotRootPrintTime = true;
+
+              // Print timestamp (relative) and delta time
+              PrintInfo("[RobotRoot] dt=%.3f ms\n", dtMs);
               PrintInfo("RobotRoot: pos:(%f, %f, %f)   quat(%f, %f, %f, %f)\n",
                   p[0], p[1], p[2], r[3], r[0], r[1], r[2]);
           }
@@ -630,7 +645,9 @@ int main(int argc, char** argv) {
           const char* result;
           EMCPError robotStatus = RA_GetRobotRosFrameJson(&result, compress, pHandle);
           if (robotStatus == Error_None) {
-             PrintInfo("jsonStr: %s  \n", result);
+
+
+          //   PrintInfo("jsonStr: %s  \n", result);
           }
           else {
               PrintInfo("获取机器人ROS帧JSON失败: %s\n", getErrorMsg(robotStatus));

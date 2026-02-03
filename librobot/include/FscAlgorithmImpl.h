@@ -27,15 +27,15 @@ namespace eba
 
     protected:
 		//输入源参数
-		float sourceHipsWidth = 0.15f;
+		float sourceHipsWidth = 0.238f;
 		float sourceHipsHeight = 0.0f;
-        float sourceLegLength = 0.45f;
-		float sourceAnkleHeight = 0.42f;
+        float sourceLegLength = 0.858f;
+		float sourceAnkleHeight = 0.08f;
 		//机器人实际参数
-		float targetHipsWidth = 0.15f;
-		float targetHipsHeight = 0.05f;
-		float targetLegLength = 0.35f;
-		float targetAnkleHeight = 0.3f;
+		float targetHipsWidth = 0.21f;
+		float targetHipsHeight = 0.0f;
+		float targetLegLength = 0.73f;
+		float targetAnkleHeight = 0.05f;
 
 		Vector3 modelForward;
 		Vector3 modelLeft;
@@ -61,6 +61,26 @@ namespace eba
 		JointNode* rightFoot = nullptr;
 		//JointNode* rightBall = nullptr;
 		JointNode* rightHeel = nullptr;
+
+		// Foot lock (plant) state
+		bool m_leftFootLocked = false;
+		bool m_rightFootLocked = false;
+		Vector3 m_leftFootLockPos = Vector3(0);
+		Vector3 m_rightFootLockPos = Vector3(0);
+		Vector3 m_lastLeftFootInputPos = Vector3(0);
+		Vector3 m_lastRightFootInputPos = Vector3(0);
+
+		// Tunables
+		float m_footLockVelEnter = 0.03f; // m/s
+		float m_footLockVelExit = 0.06f;  // m/s
+		float m_footLockHeightThreshold = 0.08f; // scaled space
+		int m_initedFrame = 0;
+
+		// Limit for width compensation (meters in the scaled/output space). Helps prevent over-inward/outward swing.
+		float m_maxHipsWidthComp = 0.03f;
+
+		// IK knee pole distance (meters in scaled/output space)
+		float m_kneePoleDist = 0.25f;
 	};
 
 
