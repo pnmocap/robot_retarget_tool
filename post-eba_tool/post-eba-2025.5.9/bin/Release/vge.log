@@ -1,0 +1,234 @@
+[10:17:13] [trace] vge: Already included: Lib/Math.glsl, skipping
+[10:17:13] [trace] vge: Already included: Lib/Frustum.glsl, skipping
+[10:17:13] [trace] vge: Already included: Lib/Math.glsl, skipping
+[10:17:13] [trace] vge: Already included: Lib/SpaceTraversal.glsl, skipping
+[10:17:13] [trace] vge: Already included: Lib/BRDF.glsl, skipping
+[10:17:13] [trace] vge: Already included: Lib/Math.glsl, skipping
+[10:17:13] [trace] vge: Already included: Lib/Math.glsl, skipping
+[10:17:13] [trace] vge: Already included: Lib/Math.glsl, skipping
+[10:17:13] [info] vge: Created VAO: 18321423570139020029
+[10:17:14] [info] vge: Created buffer: 0x178db26a5b0
+[10:17:14] [info] vge: Created texture: 0x178db26a790
+[10:17:14] [info] vge: Created VAO: 4117590628754083159
+[10:17:14] [info] vge: Created pipeline: 12186128667742980927
+[10:17:14] [info] vge: Created pipeline: 16143769108063909553
+[10:17:14] [info] vge: Created pipeline: 8796793445778038305
+[10:17:14] [info] vge: Created pipeline: 4119747156148558671
+[10:17:14] [info] vge: Created VAO: 7784144130630303761
+[10:17:14] [info] vge: Created pipeline: 17470077033579423492
+[10:17:14] [info] vge: Created pipeline: 7237818210155839156
+[10:17:14] [info] vge: Created texture: 0x178db269e30
+[10:17:14] [info] vge: Created texture: 0x178db26a640
+[10:17:14] [info] vge: Created texture: 0x178db26a6a0
+[10:17:14] [info] vge: Created texture: 0x178db26a520
+[10:17:14] [info] vge: Created texture: 0x178db26a7f0
+[10:17:14] [info] vge: Created pipeline: 16143769108063909553
+[10:17:14] [info] vge: Created pipeline: 8796793445778038305
+[10:17:14] [info] vge: Created pipeline: 7237818210155839156
+[10:17:14] [info] vge: Created pipeline: 17470077033579423492
+[10:17:14] [info] vge: Created pipeline: 4119747156148558671
+[10:17:14] [info] vge: Created pipeline: 12186128667742980927
+[10:17:14] [info] vge: Created buffer: 0x178db26a700
+[10:17:14] [info] vge: Created buffer: 0x178db269ec0
+[10:17:14] [info] vge: Created buffer: 0x178db269f50
+[10:17:14] [info] vge: Created texture: 0x178db26a580
+[10:17:14] [info] vge: Created buffer: 0x178db269f80
+[10:17:14] [info] vge: Created texture: 0x178db26a730
+[10:17:14] [info] vge: Created texture: 0x178db26a310
+[10:17:14] [info] vge: Created texture: 0x178db26a3a0
+[10:17:14] [info] vge: Created texture: 0x178db269fb0
+[10:17:14] [info] vge: Created texture: 0x178db26a7c0
+[10:17:14] [info] vge: Created texture: 0x178db26a820
+[10:17:14] [info] vge: Created texture: 0x178db269fe0
+[10:17:14] [info] vge: Created texture: 0x178db26a250
+[10:17:14] [info] vge: Created texture: 0x178db26a100
+[10:17:14] [info] vge: Created texture: 0x178db26a850
+[10:17:14] [info] vge: Created texture: 0x178db26a430
+[10:17:14] [info] vge: Created texture: 0x178db26a370
+[10:17:14] [info] vge: Created texture: 0x178db26a880
+[10:17:14] [info] vge: Created texture: 0x178db26a010
+[10:17:14] [info] vge: Created texture: 0x178db26a130
+[10:17:14] [info] vge: Created texture: 0x178db26a160
+[10:17:14] [info] vge: Created texture: 0x178db26a190
+[10:17:14] [info] vge: Created texture: 0x178db26a3d0
+[10:17:14] [info] vge: Created texture: 0x178db26a400
+[10:17:25] [info] vge: Body=world_link, Parent=robot_trans, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=torso_link_link, Parent=world_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\torso_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\torso_link.STL
+[10:17:25] [error] vge: Failed to load mesh: torso_link.STL
+[10:17:25] [info] vge: Geo=, Body=torso_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=waist_y_link_link, Parent=torso_link_link, Pos=(0,0,-0.2265), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\waist_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\waist_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: waist_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=waist_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=waist_x_link_link, Parent=waist_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\waist_x_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\waist_x_link.STL
+[10:17:25] [error] vge: Failed to load mesh: waist_x_link.STL
+[10:17:25] [info] vge: Geo=, Body=waist_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=waist_z_link_link, Parent=waist_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\waist_z_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\waist_z_link.STL
+[10:17:25] [error] vge: Failed to load mesh: waist_z_link.STL
+[10:17:25] [info] vge: Geo=, Body=waist_z_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_hip_y_link_link, Parent=waist_z_link_link, Pos=(0,0.136,-0.156), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_hip_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_hip_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_hip_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_hip_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_hip_x_link_link, Parent=l_hip_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_hip_x_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_hip_x_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_hip_x_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_hip_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_hip_z_link_link, Parent=l_hip_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_hip_z_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_hip_z_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_hip_z_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_hip_z_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_knee_y_link_link, Parent=l_hip_z_link_link, Pos=(0,0,-0.32), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_knee_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_knee_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_knee_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_knee_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_ankle_y_link_link, Parent=l_knee_y_link_link, Pos=(0,0,-0.32), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_ankle_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_ankle_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_ankle_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_ankle_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_ankle_x_link_link, Parent=l_ankle_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_ankle_x_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_ankle_x_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_ankle_x_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_ankle_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_hip_y_link_link, Parent=waist_z_link_link, Pos=(0,-0.136,-0.156), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_hip_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_hip_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_hip_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_hip_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_hip_x_link_link, Parent=r_hip_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_hip_x_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_hip_x_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_hip_x_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_hip_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_hip_z_link_link, Parent=r_hip_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_hip_z_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_hip_z_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_hip_z_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_hip_z_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_knee_y_link_link, Parent=r_hip_z_link_link, Pos=(0,0,-0.32), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_knee_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_knee_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_knee_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_knee_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_ankle_y_link_link, Parent=r_knee_y_link_link, Pos=(0,0,-0.32), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_ankle_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_ankle_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_ankle_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_ankle_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_ankle_x_link_link, Parent=r_ankle_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_ankle_x_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_ankle_x_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_ankle_x_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_ankle_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_shoulder_y_link_link, Parent=torso_link_link, Pos=(0,0.178,0.087), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_shoulder_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_shoulder_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_shoulder_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_shoulder_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_shoulder_x_link_link, Parent=l_shoulder_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_shoulder_x_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_shoulder_x_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_shoulder_x_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_shoulder_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_shoulder_z_link_link, Parent=l_shoulder_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_shoulder_z_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_shoulder_z_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_shoulder_z_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_shoulder_z_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_elbow_y_link_link, Parent=l_shoulder_z_link_link, Pos=(0,0,-0.256), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_elbow_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_elbow_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_elbow_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_elbow_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_wrist_x_link_link, Parent=l_elbow_y_link_link, Pos=(0.256,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_wrist_x_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_wrist_x_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_wrist_x_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_wrist_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_wrist_y_link_link, Parent=l_wrist_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_wrist_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_wrist_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_wrist_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_wrist_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=l_wrist_z_link_link, Parent=l_wrist_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_wrist_z_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\l_wrist_z_link.STL
+[10:17:25] [error] vge: Failed to load mesh: l_wrist_z_link.STL
+[10:17:25] [info] vge: Geo=, Body=l_wrist_z_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_shoulder_y_link_link, Parent=torso_link_link, Pos=(0,-0.178,0.087), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_shoulder_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_shoulder_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_shoulder_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_shoulder_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_shoulder_x_link_link, Parent=r_shoulder_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_shoulder_x_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_shoulder_x_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_shoulder_x_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_shoulder_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_shoulder_z_link_link, Parent=r_shoulder_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_shoulder_z_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_shoulder_z_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_shoulder_z_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_shoulder_z_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_elbow_y_link_link, Parent=r_shoulder_z_link_link, Pos=(0,0,-0.256), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_elbow_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_elbow_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_elbow_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_elbow_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_wrist_x_link_link, Parent=r_elbow_y_link_link, Pos=(0.256,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_wrist_x_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_wrist_x_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_wrist_x_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_wrist_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_wrist_y_link_link, Parent=r_wrist_x_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_wrist_y_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_wrist_y_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_wrist_y_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_wrist_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: Body=r_wrist_z_link_link, Parent=r_wrist_y_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [error] vge: Failed to load mesh: Unable to open file "D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_wrist_z_link.STL".
+[10:17:25] [error] vge: Failed to load mesh D:/Git/robot_retarget_tool/post-eba工具/post-eba-2025.5.9/bin/Release/../../robots/elf3\r_wrist_z_link.STL
+[10:17:25] [error] vge: Failed to load mesh: r_wrist_z_link.STL
+[10:17:25] [info] vge: Geo=, Body=r_wrist_z_link_link, Pos=(0,0,0), Quat=(1,0,0,0)
+[10:17:25] [info] vge: waist_y_joint: pos=(0,0,-0.2265, rot=(1,0,0,0)
+[10:17:25] [info] vge: waist_x_joint: pos=(0,0,-0.2265, rot=(1,0,0,0)
+[10:17:25] [info] vge: waist_z_joint: pos=(0,0,-0.2265, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_hip_y_joint: pos=(0,0.136,-0.3825, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_hip_x_joint: pos=(0,0.136,-0.3825, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_hip_z_joint: pos=(0,0.136,-0.3825, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_knee_y_joint: pos=(0,0.136,-0.7025, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_ankle_y_joint: pos=(0,0.136,-1.0225, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_ankle_x_joint: pos=(0,0.136,-1.0225, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_hip_y_joint: pos=(0,-0.136,-0.3825, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_hip_x_joint: pos=(0,-0.136,-0.3825, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_hip_z_joint: pos=(0,-0.136,-0.3825, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_knee_y_joint: pos=(0,-0.136,-0.7025, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_ankle_y_joint: pos=(0,-0.136,-1.0225, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_ankle_x_joint: pos=(0,-0.136,-1.0225, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_shoulder_y_joint: pos=(0,0.178,0.087, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_shoulder_x_joint: pos=(0,0.178,0.087, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_shoulder_z_joint: pos=(0,0.178,0.087, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_elbow_y_joint: pos=(0,0.178,-0.16900001, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_wrist_x_joint: pos=(0.256,0.178,-0.16900001, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_wrist_y_joint: pos=(0.256,0.178,-0.16900001, rot=(1,0,0,0)
+[10:17:25] [info] vge: l_wrist_z_joint: pos=(0.256,0.178,-0.16900001, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_shoulder_y_joint: pos=(0,-0.178,0.087, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_shoulder_x_joint: pos=(0,-0.178,0.087, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_shoulder_z_joint: pos=(0,-0.178,0.087, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_elbow_y_joint: pos=(0,-0.178,-0.16900001, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_wrist_x_joint: pos=(0.256,-0.178,-0.16900001, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_wrist_y_joint: pos=(0.256,-0.178,-0.16900001, rot=(1,0,0,0)
+[10:17:25] [info] vge: r_wrist_z_joint: pos=(0.256,-0.178,-0.16900001, rot=(1,0,0,0)

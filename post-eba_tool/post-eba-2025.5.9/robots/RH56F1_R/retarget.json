@@ -1,0 +1,115 @@
+{
+    "ankelOrder": {
+        "axis1": 1,
+        "axis2": 0,
+        "axis3": 2
+    },
+    "ankleHeight": 0.0,
+    "bendMaxAngle": 10.0,
+    "bendScale": 0.30000001192092896,
+    "bendStartAngle": 20.0,
+    "dataSmooth": false,
+    "handMode": 0.0,
+    "headOrder": {
+        "axis1": 2,
+        "axis2": 0,
+        "axis3": 1
+    },
+    "hipMax": 0.8999999761581421,
+    "hipMin": 0.25,
+    "hipOrder": {
+        "axis1": 2,
+        "axis2": 1,
+        "axis3": 0
+    },
+    "hipsHeight": 0.0,
+    "hipsWith": 0.0,
+    "legLength": 0.0,
+    "lowerBodyMode": 0,
+    "moveSpeed": 1.0,
+    "retargetJoints": [
+        {
+            "max": 2.094395160675049,
+            "maxSpeed": 31.41592788696289,
+            "min": 0.0,
+            "offset": 0.0,
+            "rawJoint": 48,
+            "retargetJoint": "right_thumb_1_joint",
+            "sign": 1,
+            "useAngleLimit": true,
+            "useSpeedLimit": true
+        },
+        {
+            "max": 0.47455501556396484,
+            "maxSpeed": 31.41592788696289,
+            "min": 0.0,
+            "offset": 0.0,
+            "rawJoint": 49,
+            "retargetJoint": "right_thumb_2_joint",
+            "sign": 1,
+            "useAngleLimit": true,
+            "useSpeedLimit": true
+        },
+        {
+            "max": 3.140000104904175,
+            "maxSpeed": 31.41592788696289,
+            "min": 0.0,
+            "offset": 0.0,
+            "rawJoint": 50,
+            "retargetJoint": "right_thumb_3_joint",
+            "sign": 1,
+            "useAngleLimit": true,
+            "useSpeedLimit": true
+        },
+        {
+            "max": 3.140000104904175,
+            "maxSpeed": 31.41592788696289,
+            "min": 0.0,
+            "offset": 0.0,
+            "rawJoint": 51,
+            "retargetJoint": "right_thumb_4_joint",
+            "sign": 1,
+            "useAngleLimit": true,
+            "useSpeedLimit": true
+        }
+    ],
+    "rotateSpeed": 1.5,
+    "shoulderAngle": 0.0,
+    "shoulderOrder": {
+        "axis1": 1,
+        "axis2": 0,
+        "axis3": 2
+    },
+    "slideHeightInit": 1.5499999523162842,
+    "slideHeightMax": 1.7000000476837158,
+    "slideHeightMin": 0.30000001192092896,
+    "slideSpeed": 1.0,
+    "slideThresholdMax": 1.0499999523162842,
+    "slideThresholdMin": 0.8600000143051147,
+    "spineOrder": {
+        "axis1": 2,
+        "axis2": 0,
+        "axis3": 1
+    },
+    "urdfJointNames": [
+        "right_thumb_1_joint",
+        "right_thumb_2_joint",
+        "right_thumb_3_joint",
+        "right_thumb_4_joint",
+        "right_index_1_joint",
+        "right_index_2_joint",
+        "right_middle_1_joint",
+        "right_middle_2_joint",
+        "right_ring_1_joint",
+        "right_ring_2_joint",
+        "right_little_1_joint",
+        "right_little_2_joint"
+    ],
+    "useAngleLimit": true,
+    "useSpeedLimit": true,
+    "wristOrder": {
+        "axis1": 1,
+        "axis2": 0,
+        "axis3": 2
+    }
+}

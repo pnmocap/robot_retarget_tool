@@ -220,8 +220,33 @@ namespace eba
         output.hips.position = ConvertVec(hips->GetPosition());
         output.hips.rotation = ConvertQuat(hips->GetRotation());
 
-#if 0 // no ik
-        // ...existing code...
+#if 1 // no ik
+        const Vector3& leftKneePos = leftLeg->GetPosition();
+        const Vector3& rightKneePos = rightLeg->GetPosition();
+
+        Vector3 leftLegOrigDir = normalize(leftFoot->GetPosition() - leftKneePos);
+        Vector3 rightLegOrigDir = normalize(rightFoot->GetPosition() - rightKneePos);
+
+        Vector3 leftLegDir = normalize(leftFootAdjustPos - leftKneePos);
+        Vector3 rightLegDir = normalize(rightFootAdjustPos - rightKneePos);
+
+        Quat leftLegDeltaQ = glm::rotation(leftLegOrigDir, leftLegDir);
+        Quat rightLegDeltaQ = glm::rotation(rightLegOrigDir, rightLegDir);
+
+        leftLeg->SetRotation(leftLegDeltaQ * inputLeftLegRot);
+        rightLeg->SetRotation(rightLegDeltaQ * inputRightLegRot);
+
+        leftFoot->SetPosition(leftFootAdjustPos);
+        rightFoot->SetPosition(rightFootAdjustPos);
+        leftFoot->SetRotation(inputLeftFootRot);
+        rightFoot->SetRotation(inputRightFootRot);
+
+        output.leftUpLeg.rotation = ConvertQuat(leftUpLeg->GetRotation());
+        output.rightUpLeg.rotation = ConvertQuat(rightUpLeg->GetRotation());
+        output.leftLeg.position = ConvertVec(leftLeg->GetPosition());
+        output.leftLeg.rotation = ConvertQuat(leftLeg->GetRotation());
+        output.rightLeg.position = ConvertVec(rightLeg->GetPosition());
+        output.rightLeg.rotation = ConvertQuat(rightLeg->GetRotation());
 #else
     // do leg ik (world-space)
     IkTransform leftUpLegTrans;

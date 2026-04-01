@@ -332,7 +332,6 @@ int setMCPSettings(IMCPSettings* setting, MCPSettingsHandle_t handle) {
   //}
 
    error = setting->SetSettingsTCP(strServerIP.c_str(), strServerPort, handle);
-  // error = setting->SetSettingsUDPServer(strServerIP.c_str(), strServerPort, handle);
 
   return 0;
 }
@@ -465,20 +464,25 @@ void updateJoints(MCPJointHandle_t joint, MCPAvatarHandle_t avatar) {
   EMCPJointTag jointtags[5];
   uint32_t numberOfChildren = 0;
   EMCPJointTag jointT;
-  if (joint) {
+  if (joint) 
+  {
     error = jointMgr->GetJointLocalRotation(&r[0], &r[1], &r[2], &r[3], joint);
     error = jointMgr->GetJointLocalPosition(&p[0], &p[1], &p[2], joint);
+
+    //error = jointMgr->GetJointGlobalPosition(&p[0], &p[1], &p[2], joint);
+    //error = jointMgr->GetJointGlobalRotation(&r[0], &r[1], &r[2], &r[3], joint);
+
     if (error != Error_None)  // 这里用来规避勾选“不带位移”后仍调用该接口所产生的野值
     {
       p[0] = p[1] = p[2] = 0;
     }
     error = jointMgr->GetJointTag(&jointT, joint);
 
-   /* PrintInfo(
+    PrintInfo(
         "JointName:%s  JointTag<%d>:%s \n    pos:(%f, %f, %f)   quat(%f, %f, "
         "%f, %f)\n",
         name, jointT, tagnames[jointT], p[0], p[1], p[2], r[3], r[0], r[1],
-        r[2]);*/
+        r[2]);
 
     error = jointMgr->GetJointLocalRotationByEuler(&p[0], &p[1], &p[2], joint);
 
@@ -564,14 +568,13 @@ int main(int argc, char** argv) {
     nEventCount = 0;
     error = pGlobalApp->PollApplicationNextEvent(nullptr, &nEventCount, globalAppHandle);
 
-    if (error != Error_None && error != Error_NoneMessage) {
-        PrintInfo("轮询事件失败: %s\n", getErrorMsg(error));
-    }
+    
+    
     if (nEventCount) 
     {
       error = pGlobalApp->PollApplicationNextEvent(pEvents, &nEventCount,globalAppHandle);
       if (error != Error_None) {
-          PrintInfo("获取事件数据失败: %s\n", getErrorMsg(error));
+          PrintInfo("获取事件: %s\n", getErrorMsg(error));
       }
       for (uint32_t i = 0; i < nEventCount; i++) {
         if (pEvents[i].eventType == MCPEvent_AvatarUpdated) {
@@ -590,6 +593,8 @@ int main(int argc, char** argv) {
           MCPJointHandle_t jointHandle = 0;
           error = pAvatarInterface->GetAvatarJointByName("Hips", &jointHandle,
                                                          avatarHandle);
+
+
           if (error == Error_None && jointSize > 0) {
             updateJoints(jointHandle, avatarHandle);
           }
